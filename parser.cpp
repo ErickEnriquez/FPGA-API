@@ -35,7 +35,7 @@ int main()
     {
         /**Code for the operations goes here**/
 
-        cout << "file not fount" << endl;
+        cout << "file not found" << endl;
     }
     else
     {
