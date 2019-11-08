@@ -17,25 +17,25 @@ int main()
     cin >> command;
     getline(cin, file);
 
-    if (command.compare("transfer") == 0)
+    if (command.compare("transfer") == 0 && file.length() != 0)
     {
 
         /**Code for the operations goes here**/
 
         // if file does not exist
-        cout << "file not found" << endl;
+        cout << "file not found. transfer unsuccessful" << endl;
     }
-    else if (command.compare("read") == 0) // opens a file for reading
+    else if (command.compare("read") == 0 && file.length() != 0) // opens a file for reading
     {
         /**Code for the operations goes here**/
 
         cout << "file not found" << endl;
     }
-    else if (command.compare("delete") == 0)
+    else if (command.compare("delete") == 0 && file.length() != 0)
     {
         /**Code for the operations goes here**/
 
-        cout << "file not found" << endl;
+        cout << "file not fount. deletion unsuccessful" << endl;
     }
     else
     {
@@ -55,4 +55,4 @@ int main()
     cout<<"TESTING\n";
 
     return 0;
-}*?
+}*/
