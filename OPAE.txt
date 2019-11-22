@@ -8,4 +8,6 @@ It provides a library implementing the OPAE C API for presenting a streamlined a
 
 The OPAE SDK also includes the AFU Simulation Environment (ASE) for end-to-end simulation of accelerator RTL together with software applications using the OPAE C API. OPAE's goal is to accelerate FPGA adoption.
 
+OPAE C API Programming Guide: https://opae.github.io/1.0.2/docs/fpga_api/prog_guide/readme.html
+
 SOURCE: https://opae.github.io/
