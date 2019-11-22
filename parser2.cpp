@@ -10,6 +10,7 @@ void parser();
 void transfer(string fileName, string port);
 void read(string fileName);
 void deleter(string fileName);
+void helper();
 
 
 int main()
@@ -20,6 +21,7 @@ int main()
     cout << "To access files in the DMA: read 'file name'" << endl;
     cout << "To delete a file: delete 'file name'" << endl;
     cout << "Type QUIT to quit.";
+    cout << "Type HELP to repeat this";
 
     parser();
 
@@ -66,6 +68,9 @@ int main()
         cout << "Goodbye." << endl;
         exit(0);
     }
+    else if (command.compare("HELP" == 0){
+        helper();
+    }
     else
     {
         cout << "invalid command!" << endl;
@@ -102,6 +107,15 @@ int main()
      parser(); // Return to Parser for more file interaction
 
  }
+ void helper(){
+        cout << "The following commands can be passed to the command-line interface:" << endl;
+        cout << "To transfer file from PC to FPGA card: transfer 'file name'" << endl;
+        cout << "To access files in the DMA: read 'file name'" << endl;
+        cout << "To delete a file: delete 'file name'" << endl;
+        cout << "Type QUIT to quit.";
+        cout << "Type HELP to repeat this";
+        parser();
+}
 
 /*int main(int argc, char** argv){
     cout<<"NUMBER OF ARG = " << argc <<"\n";
