@@ -6,105 +6,99 @@
 
 using namespace std;
 
-void parser();
-void transfer(string fileName, string port);
-void read(string fileName);
-void deleter(string fileName);
+void parser(int, char**);
+void transfer(char* fileName, string port);
+void read(char* fileName);
+void deleter(char* fileName);
 void helper();
 
 
-int main()
-{
+int main(int  argc , char ** argv){
 
-    cout << "The following commands can be passed to the command-line interface:" << endl;
-    cout << "To transfer file from PC to FPGA card: transfer 'file name'" << endl;
-    cout << "To access files in the DMA: read 'file name'" << endl;
-    cout << "To delete a file: delete 'file name'" << endl;
-    cout << "Type QUIT to quit.";
-    cout << "Type HELP to repeat this";
-
-    parser();
+    if (argc < 2 || argc > 4){//if a user enters too few or too many arguments
+        helper();
+        return 0;
+    }
+    else
+        parser(argc,argv);
 
     return 0;
 }
 
- void parser(){
-    string command, file;
-
-    cout << endl << "Enter your command" << endl;
-    cin >> command;
-
-
-    if (command.compare("transfer") == 0)
-    {
-        string port;
-        cout << "Enter the file path and name you want to transfer:" << endl;
-        getline(cin, file);
-        /**Code for the operations goes here**/
-        cout << "Enter the port you want the file to exit through:" << endl;
-        cin >> port;
-
-        transfer(file, port);
+ void parser(int argc , char** argv){
+   
+   string command = argv[1];
+    if (argc == 2){
+        if (command == "QUIT")
+            exit(0);
+        else if(command == "HELP")
+            helper();
+        else{
+            cout << "INVALID\n";
+            helper();
+            exit(0);            
+        }
 
     }
-    else if (command.compare("read") == 0) // opens a file for reading
-    {
-        cout << "Enter the file name you want to read:" << endl;
-        getline(cin, file);
-        /**Code for the operations goes here**/
-        read(file);
-
+    else if(argc == 3){
+        if(command  == "transfer"){
+            string port = argv[3];//port number
+            transfer(argv[2],port);
+        }
+        else if(command == "read"){
+            read(argv[2]);
+        }
+        else if(command == "delete"){
+            deleter(argv[2]);
+        }
+        else{
+            cout <<"INVALID:\n";
+            helper();
+            exit(0);
+        }
     }
-    else if (command.compare("delete") == 0)
-    {
-        cout << "Enter the file path and name you want to delete:" << endl;
-        getline(cin, file);
-        /**Code for the operations goes here**/
-        deleter(file);
-
-
-    }
-    else if (command.compare("QUIT") == 0){
-        cout << "Goodbye." << endl;
-        exit(0);
-    }
-    else if (command.compare("HELP" == 0){
-        helper();
-    }
-    else
-    {
-        cout << "invalid command!" << endl;
-    }
-
  }
 
- void transfer(string fileName, string port){
+    
+
+ void transfer(char* fileName, string port){
      //Code for finding the file path & processing the file goes here
+        FILE* transferFile; //Pointer to the File
+        
+        transferFile = fopen(fileName,"rb");//open up a file in order to read in binary
+        if(transferFile == NULL){// if file does not exist
+            cout << "ERROR OPENING FILE\n";
+            helper();
+            exit(0);
 
-
-     // if file does not exist
-        cout << "file not found. transfer unsuccessful" << endl;
-     parser(); // Return to Parser for more file interaction
+        }
+     
 
  }
 
- void read(string fileName){
+ void read(char* fileName){
      //Code for finding the file in the FPGA & retrieving goes here
-
+    FILE* fileData;
+    
+    fileData = fopen(fileName,"wb");//open a file in order to write to disk
+    if(fileData == NULL){//if file can't be opened
+            cout << "ERROR OPENING FILE\n";
+            helper();
+            exit(0);
+    }
      // if file does not exist
      cout << "file not found" << endl;
 
-     parser(); // Return to Parser for more file interaction
 
  }
 
- void deleter(string fileName){
+ void deleter(char* fileName){
      //Code for finding the file and deleting goes here
 
      // if file does not exist
      cout << "file not fount. Deletion unsuccessful" << endl;
 
-     parser(); // Return to Parser for more file interaction
+     //parser(); // Return to Parser for more file interaction
 
  }
  void helper(){
@@ -114,14 +108,5 @@ int main()
         cout << "To delete a file: delete 'file name'" << endl;
         cout << "Type QUIT to quit.";
         cout << "Type HELP to repeat this";
-        parser();
+        //parser();
 }
-
-/*int main(int argc, char** argv){
-    cout<<"NUMBER OF ARG = " << argc <<"\n";
-    for(int i = 1; i < argc ;i++){
-        cout<< argv[i] << "\n";
-    }
-    cout<<"TESTING\n";
-    return 0;
-}*/
