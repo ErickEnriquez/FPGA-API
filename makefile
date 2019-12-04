@@ -1,5 +1,10 @@
-mfile: parser2.cpp
-	g++ parser2.cpp -o parser
+mfile: parser.cpp
+	g++ parser.cpp -o parser
 
 clean:
 	rm parser
+	clear
+
+test_delete:
+	touch test.txt
+	
