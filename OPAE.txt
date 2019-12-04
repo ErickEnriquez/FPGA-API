@@ -1,0 +1,13 @@
+The Open Programmable Acceleration Engine is a software framework for managing and accessing programmable accelerators (FPGAs). Its main parts are:
+
+- The OPAE Software Development Kit (OPAE SDK),
+- The OPAE Linux driver for Intel(R) Xeon(R) CPU with Integrated FPGAs and Intel(R) PAC with Arria(R) 10 GX FPGA
+- The Basic Building Block (BBB) library for accelerating AFU development (not part of the OPAE release, but pre-release code is available on GitHub: Intel FPGA BBB
+
+It provides a library implementing the OPAE C API for presenting a streamlined and easy-to-use interface for software applications to discover, access, and manage FPGA devices and accelerators using the OPAE software stack.
+
+The OPAE SDK also includes the AFU Simulation Environment (ASE) for end-to-end simulation of accelerator RTL together with software applications using the OPAE C API. OPAE's goal is to accelerate FPGA adoption.
+
+OPAE C API Programming Guide: https://opae.github.io/1.0.2/docs/fpga_api/prog_guide/readme.html
+
+SOURCE: https://opae.github.io/
