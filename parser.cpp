@@ -11,6 +11,7 @@ void transfer(char* fileName, string port);
 void read(char* fileName);
 void deleter(char* fileName);
 void helper();
+void performance_stat();
 
 
 int main(int  argc , char ** argv){
@@ -26,17 +27,19 @@ int main(int  argc , char ** argv){
 }
 
  void parser(int argc , char** argv){
-   
+
    string command = argv[1];
     if (argc == 2){
         if (command == "QUIT")
             exit(0);
         else if(command == "HELP")
             helper();
+        else if (command == "SPEED")
+            performance_stat();
         else{
             cout << "INVALID\n";
             helper();
-            exit(0);            
+            exit(0);
         }
 
     }
@@ -69,7 +72,7 @@ int main(int  argc , char ** argv){
     }
  }
 
-    
+
 
  void transfer(char* fileName, string port){
      //Code for finding the file path & processing the file goes here
@@ -82,14 +85,14 @@ int main(int  argc , char ** argv){
             exit(0);
 
         }
-     
+
 
  }
 
  void read(char* fileName){
      //Code for finding the file in the FPGA & retrieving goes here
     FILE* fileData;
-    
+
     fileData = fopen(fileName,"wb");//open a file in order to write to disk
     if(fileData == NULL){//if file can't be opened
             cout << "ERROR OPENING FILE\n";
@@ -111,11 +114,19 @@ int main(int  argc , char ** argv){
          cout << "file not found. Deletion unsuccessful" << endl;
 
  }
+
+ void performance_stat()
+ {
+     cout << "Transfer rates of each file that has been transfered:" << endl;
+     //print the file name and its transfer speed/rate
+ }
+
  void helper(){
         cout << "The following commands can be passed to the command-line interface:" << endl;
-        cout << "To transfer file from PC to FPGA card: transfer 'file name'" << endl;
+        cout << "To transfer file from PC to FPGA card: transfer 'file name' 'port number'" << endl;
         cout << "To access files in the DMA: read 'file name'" << endl;
         cout << "To delete a file: delete 'file name'" << endl;
+        cout << "To find the rate of file transfer: Type 'SPEED'" << endl;
         cout << "Type QUIT to quit.";
         cout << "Type HELP to repeat this";
         //parser();
