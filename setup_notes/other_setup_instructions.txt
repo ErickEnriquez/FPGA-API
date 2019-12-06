@@ -1,0 +1,6 @@
+There was a small problem with the DMA driver compilation that I had to follow the instructions at:
+https://forums.xilinx.com/t5/PCIe-and-CPM/PCIe-DMA-driver-compilation-issues-in-Linux-Ubuntu-19-04/td-p/1022239
+
+to remedy
+
+Had to install PCI Drivers (rdf0305-kcu105-trd01-2017-3.zip) from https://www.xilinx.com/products/boards-and-kits/kcu105.html#documentation
