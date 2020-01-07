@@ -1,0 +1,121 @@
+xilinx rtfpga
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[0]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[1]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[1]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[2]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[3]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[3]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[4]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rrq_dsc_bt_adj_902_reg[1] )
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[0]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[1]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[1]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[2]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[3]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[3]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg_rep[4]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/wcp_rid_ord_nn2_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\rrq_dsc_bt_adj_902_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /wrq_unx_dat_303_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /wrq_unx_dat_303_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\reg_umsk_nn1_reg[31] )
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/sts_nn1_reg[6]' (FDR) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/ctl_run_nn2_reg'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /dat_fifo_dbe_nn1_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /dat_fifo_dbe_nn1_reg)
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/sts_nn1_reg[6]' (FDR) to 'gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/ctl_run_nn2_reg'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mpl_msk_nn1_reg[0] )

@@ -1,0 +1,17 @@
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/RD/xdma_v4_1_4_vul_rdwr__parameterized0__GB2:4074072107
+/inst/udma_wrapper/dma_top/xdma_v4_1_4_udma_top__GCB2:207354163
+/inst/udma_wrapper/dma_top/dma_pcie_req/xdma_v4_1_4_dma_pcie_req__GB2:280087560
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/WR/xdma_v4_1_4_vul_rdwr__GB0:3467107813
+/inst/udma_wrapper/dma_top/dma_pcie_req/xdma_v4_1_4_dma_pcie_req__GB3:1740045470
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/WR/xdma_v4_1_4_vul_rdwr__GB2:547994825
+/inst/udma_wrapper/xdma_v4_1_4_udma_wrapper__GC0:155577154
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/RD/gen_rdwr_loop[2].gen_rdwr_eng.RDWR_INST:445649212
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/WR/gen_rdwr_loop[2].gen_rdwr_eng.RDWR_INST:503174437
+/inst/udma_wrapper/dma_top/xdma_v4_1_4_udma_top__GCB0:3797260319
+/inst/design_1_xdma_0_1_core_top__GC0:300905950
+/inst/udma_wrapper/dma_top/dma_pcie_req/dma_pcie_rc:3879802172
+/inst/udma_wrapper/dma_top/dma_pcie_req/xdma_v4_1_4_dma_pcie_req__GB4:4191316285
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/RD/xdma_v4_1_4_vul_rdwr__parameterized0__GB0:484116743
+/inst/udma_wrapper/dma_top/xdma_v4_1_4_udma_top__GCB1:2505222281
+/inst/udma_wrapper/dma_top/dma_enable.vul_dma/xdma_v4_1_4_vul_top__GC0:3778915277
+/inst/udma_wrapper/dma_top/dma_pcie_req/axidma_rrq_arb:3475548060

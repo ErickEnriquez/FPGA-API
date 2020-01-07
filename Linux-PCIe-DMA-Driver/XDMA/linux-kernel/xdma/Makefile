@@ -30,6 +30,7 @@ clean:
 	$(MAKE) -C $(BUILDSYSTEM_DIR) M=$(PWD) clean
 
 install: all
-	$(MAKE) -C $(BUILDSYSTEM_DIR) M=$(PWD) modules_install
+	$(MAKE) -C $(BUILDSYSTEM_DIR) M=$(CURDIR) modules_install
+	depmod -A
 
 endif

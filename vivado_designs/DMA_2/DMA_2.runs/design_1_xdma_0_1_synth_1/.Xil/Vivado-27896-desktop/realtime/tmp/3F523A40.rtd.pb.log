@@ -1,0 +1,82 @@
+xilinx rtfpga
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rcp_rcv_amt_101_reg" of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_wadr_nn1_reg" of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rcp_rcv_lba_101_reg" of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_len_nn1_reg" of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_wfba_nn1_reg" of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port REG_CHN_OUT[cdc_wbk_adr][1] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port REG_CHN_OUT[cdc_wbk_adr][0] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][63] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][62] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][61] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][60] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][59] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][58] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][57] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][56] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][55] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][54] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][53] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][52] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][51] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][50] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][49] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][48] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][47] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][46] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][45] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][44] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][43] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][42] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][41] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][40] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][39] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][38] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][37] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][36] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][35] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][34] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][33] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][32] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][31] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][30] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][29] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][28] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][27] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][26] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][25] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][24] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][23] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][22] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][21] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][20] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][19] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][18] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][17] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][16] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][15] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][14] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][13] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][12] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][11] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][10] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][9] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][8] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][7] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][6] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][5] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][4] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][3] driven by constant 0
+WARNING: [Synth 8-3917] design xdma_v4_1_4_vul_rdwr_eng__parameterized5 has port WPL_DAT_OUT[par][2] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rcp_rcv_amt_101_reg" of size (depth=32 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_wadr_nn1_reg" of size (depth=32 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rcp_rcv_lba_101_reg" of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_len_nn1_reg" of size (depth=32 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "xdma_v4_1_4_vul_rdwr_eng/rrq_wfba_nn1_reg" of size (depth=32 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-3886] merging instance 'wcp_rid_ord_nn2_reg_rep[0]' (FDR) to 'wcp_rid_ord_nn2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'wcp_rid_ord_nn2_reg_rep[1]' (FDR) to 'wcp_rid_ord_nn2_reg[1]'
+INFO: [Synth 8-3886] merging instance 'wcp_rid_ord_nn2_reg_rep[2]' (FDR) to 'wcp_rid_ord_nn2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'wcp_rid_ord_nn2_reg_rep[3]' (FDR) to 'wcp_rid_ord_nn2_reg[3]'
+INFO: [Synth 8-3886] merging instance 'wcp_rid_ord_nn2_reg_rep[4]' (FDR) to 'wcp_rid_ord_nn2_reg[4]'
+INFO: [Synth 8-3886] merging instance 'sts_nn1_reg[6]' (FDR) to 'ctl_run_nn2_reg'
