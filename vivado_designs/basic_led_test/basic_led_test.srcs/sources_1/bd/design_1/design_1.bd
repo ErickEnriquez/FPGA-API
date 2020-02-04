@@ -1,0 +1,65 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x3F25A2F13F25A2F1",
+      "device": "xcku040-ffva1156-2-e",
+      "name": "design_1",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.2",
+      "validated": "true"
+    },
+    "design_tree": {},
+    "ports": {
+      "SW_N": {
+        "direction": "I"
+      },
+      "SW_E": {
+        "direction": "I"
+      },
+      "SW_W": {
+        "direction": "I"
+      },
+      "SW_S": {
+        "direction": "I"
+      },
+      "LED_0": {
+        "direction": "O"
+      },
+      "LED_1": {
+        "direction": "O"
+      },
+      "LED_2": {
+        "direction": "O"
+      },
+      "LED_3": {
+        "direction": "O"
+      }
+    },
+    "nets": {
+      "SW_N_1": {
+        "ports": [
+          "SW_N",
+          "LED_0"
+        ]
+      },
+      "SW_E_1": {
+        "ports": [
+          "SW_E",
+          "LED_1"
+        ]
+      },
+      "SW_S_1": {
+        "ports": [
+          "SW_S",
+          "LED_3"
+        ]
+      },
+      "SW_W_1": {
+        "ports": [
+          "SW_W",
+          "LED_2"
+        ]
+      }
+    }
+  }
+}
