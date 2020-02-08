@@ -1,0 +1,4 @@
+xilinx rtfpga
+INFO: [Synth 8-4471] merging register 'wtrs[1].u_ddr_mc_wtr/casSlot2_dly_reg' into 'wtrs[0].u_ddr_mc_wtr/casSlot2_dly_reg' [/home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_ddr4_0_0/rtl/controller/ddr4_v2_2_mc_wtr.sv:110]
+INFO: [Synth 8-4471] merging register 'wtrs[2].u_ddr_mc_wtr/casSlot2_dly_reg' into 'wtrs[0].u_ddr_mc_wtr/casSlot2_dly_reg' [/home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_ddr4_0_0/rtl/controller/ddr4_v2_2_mc_wtr.sv:110]
+INFO: [Synth 8-4471] merging register 'wtrs[3].u_ddr_mc_wtr/casSlot2_dly_reg' into 'wtrs[0].u_ddr_mc_wtr/casSlot2_dly_reg' [/home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_ddr4_0_0/rtl/controller/ddr4_v2_2_mc_wtr.sv:110]

@@ -1,0 +1,3 @@
+/home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/xdma.ko
+/home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/libxdma.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/xdma_cdev.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/cdev_ctrl.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/cdev_events.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/cdev_sgdma.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/cdev_xvc.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/cdev_bypass.o /home/luke/Capstone/FPGA_API/transfer_files/linux-kernel/xdma/xdma_mod.o
+
