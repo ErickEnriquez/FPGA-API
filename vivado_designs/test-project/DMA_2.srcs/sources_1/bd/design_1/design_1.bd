@@ -14,7 +14,7 @@
       "util_ds_buf": "",
       "axi_smc": "",
       "rst_ddr4_0_300M": "",
-      "axi_uartlite_0": ""
+      "axi_uart16550_0": ""
     },
     "interface_ports": {
       "pci_express_x8": {
@@ -381,11 +381,11 @@
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "design_1_rst_ddr4_0_300M_0"
       },
-      "axi_uartlite_0": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "design_1_axi_uartlite_0_1",
+      "axi_uart16550_0": {
+        "vlnv": "xilinx.com:ip:axi_uart16550:2.0",
+        "xci_name": "design_1_axi_uart16550_0_0",
         "parameters": {
-          "UARTLITE_BOARD_INTERFACE": {
+          "UART_BOARD_INTERFACE": {
             "value": "rs232_uart"
           },
           "USE_BOARD_FLOW": {
@@ -395,16 +395,28 @@
       }
     },
     "interface_nets": {
-      "xdma_0_pcie_mgt": {
+      "axi_uart16550_0_UART": {
         "interface_ports": [
-          "pci_express_x8",
-          "xdma_0/pcie_mgt"
+          "rs232_uart",
+          "axi_uart16550_0/UART"
+        ]
+      },
+      "axi_smc_M01_AXI": {
+        "interface_ports": [
+          "axi_smc/M01_AXI",
+          "axi_uart16550_0/S_AXI"
         ]
       },
       "pcie_refclk_1": {
         "interface_ports": [
           "pcie_refclk",
           "util_ds_buf/CLK_IN_D"
+        ]
+      },
+      "xdma_0_pcie_mgt": {
+        "interface_ports": [
+          "pci_express_x8",
+          "xdma_0/pcie_mgt"
         ]
       },
       "ddr4_0_C0_DDR4": {
@@ -436,18 +448,6 @@
           "default_sysclk_300",
           "ddr4_0/C0_SYS_CLK"
         ]
-      },
-      "axi_smc_M01_AXI": {
-        "interface_ports": [
-          "axi_smc/M01_AXI",
-          "axi_uartlite_0/S_AXI"
-        ]
-      },
-      "axi_uartlite_0_UART": {
-        "interface_ports": [
-          "rs232_uart",
-          "axi_uartlite_0/UART"
-        ]
       }
     },
     "nets": {
@@ -475,7 +475,7 @@
           "axi_smc/aclk",
           "rst_ddr4_0_300M/slowest_sync_clk",
           "axi_smc/aclk2",
-          "axi_uartlite_0/s_axi_aclk"
+          "axi_uart16550_0/s_axi_aclk"
         ]
       },
       "ddr4_0_c0_ddr4_ui_clk_sync_rst": {
@@ -488,7 +488,7 @@
         "ports": [
           "rst_ddr4_0_300M/peripheral_aresetn",
           "ddr4_0/c0_ddr4_aresetn",
-          "axi_uartlite_0/s_axi_aresetn"
+          "axi_uart16550_0/s_axi_aresetn"
         ]
       },
       "xdma_0_axi_aclk": {
@@ -518,9 +518,9 @@
             "range": "16E",
             "width": "32",
             "segments": {
-              "SEG_axi_uartlite_0_Reg": {
-                "address_block": "/axi_uartlite_0/S_AXI/Reg",
-                "offset": "0x0000000040600000",
+              "SEG_axi_uart16550_0_Reg": {
+                "address_block": "/axi_uart16550_0/S_AXI/Reg",
+                "offset": "0x0000000044A00000",
                 "range": "64K"
               },
               "SEG_ddr4_0_C0_DDR4_ADDRESS_BLOCK": {
@@ -534,9 +534,9 @@
             "range": "4G",
             "width": "32",
             "segments": {
-              "SEG_axi_uartlite_0_Reg": {
-                "address_block": "/axi_uartlite_0/S_AXI/Reg",
-                "offset": "0x40600000",
+              "SEG_axi_uart16550_0_Reg": {
+                "address_block": "/axi_uart16550_0/S_AXI/Reg",
+                "offset": "0x44A00000",
                 "range": "64K"
               },
               "SEG_ddr4_0_C0_DDR4_ADDRESS_BLOCK": {

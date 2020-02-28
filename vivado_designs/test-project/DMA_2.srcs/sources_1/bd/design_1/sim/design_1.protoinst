@@ -135,7 +135,7 @@
 						"WVALID": { "actual": "S01_AXI_wvalid"}
 					}
 				},
-				"/axi_uartlite_0/S_AXI": {
+				"/axi_uart16550_0/S_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axi_aclk"},

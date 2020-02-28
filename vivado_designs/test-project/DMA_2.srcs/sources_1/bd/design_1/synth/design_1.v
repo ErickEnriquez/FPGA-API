@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-//Date        : Sat Feb  8 10:30:50 2020
+//Date        : Thu Feb 13 21:34:47 2020
 //Host        : luke-desktop running 64-bit Ubuntu 18.04.2 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=20,da_axi4_s2mm_cnt=1,da_board_cnt=40,da_clkrst_cnt=33,da_xdma_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=21,da_axi4_s2mm_cnt=1,da_board_cnt=41,da_clkrst_cnt=33,da_xdma_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (ddr4_sdram_act_n,
     ddr4_sdram_adr,
@@ -97,10 +97,10 @@ module design_1
   wire axi_smc_M00_AXI_WREADY;
   wire [63:0]axi_smc_M00_AXI_WSTRB;
   wire axi_smc_M00_AXI_WVALID;
-  wire [3:0]axi_smc_M01_AXI_ARADDR;
+  wire [12:0]axi_smc_M01_AXI_ARADDR;
   wire axi_smc_M01_AXI_ARREADY;
   wire axi_smc_M01_AXI_ARVALID;
-  wire [3:0]axi_smc_M01_AXI_AWADDR;
+  wire [12:0]axi_smc_M01_AXI_AWADDR;
   wire axi_smc_M01_AXI_AWREADY;
   wire axi_smc_M01_AXI_AWVALID;
   wire axi_smc_M01_AXI_BREADY;
@@ -114,8 +114,8 @@ module design_1
   wire axi_smc_M01_AXI_WREADY;
   wire [3:0]axi_smc_M01_AXI_WSTRB;
   wire axi_smc_M01_AXI_WVALID;
-  wire axi_uartlite_0_UART_RxD;
-  wire axi_uartlite_0_UART_TxD;
+  wire axi_uart16550_0_UART_RxD;
+  wire axi_uart16550_0_UART_TxD;
   wire ddr4_0_C0_DDR4_ACT_N;
   wire [16:0]ddr4_0_C0_DDR4_ADR;
   wire [1:0]ddr4_0_C0_DDR4_BA;
@@ -202,7 +202,7 @@ module design_1
   wire [7:0]xdma_0_pcie_mgt_txn;
   wire [7:0]xdma_0_pcie_mgt_txp;
 
-  assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
+  assign axi_uart16550_0_UART_RxD = rs232_uart_rxd;
   assign ddr4_sdram_act_n = ddr4_0_C0_DDR4_ACT_N;
   assign ddr4_sdram_adr[16:0] = ddr4_0_C0_DDR4_ADR;
   assign ddr4_sdram_ba[1:0] = ddr4_0_C0_DDR4_BA;
@@ -221,7 +221,7 @@ module design_1
   assign pcie_refclk_1_CLK_N = pcie_refclk_clk_n;
   assign pcie_refclk_1_CLK_P = pcie_refclk_clk_p;
   assign reset_1 = reset;
-  assign rs232_uart_txd = axi_uartlite_0_UART_TxD;
+  assign rs232_uart_txd = axi_uart16550_0_UART_TxD;
   assign xdma_0_pcie_mgt_rxn = pci_express_x8_rxn[7:0];
   assign xdma_0_pcie_mgt_rxp = pci_express_x8_rxp[7:0];
   design_1_axi_smc_0 axi_smc
@@ -392,8 +392,12 @@ module design_1
         .aclk2(ddr4_0_c0_ddr4_ui_clk),
         .aclk3(xdma_0_axi_aclk),
         .aresetn(xdma_0_axi_aresetn));
-  design_1_axi_uartlite_0_1 axi_uartlite_0
-       (.rx(axi_uartlite_0_UART_RxD),
+  design_1_axi_uart16550_0_0 axi_uart16550_0
+       (.ctsn(1'b1),
+        .dcdn(1'b1),
+        .dsrn(1'b1),
+        .freeze(1'b0),
+        .rin(1'b1),
         .s_axi_aclk(ddr4_0_c0_ddr4_ui_clk),
         .s_axi_araddr(axi_smc_M01_AXI_ARADDR),
         .s_axi_aresetn(rst_ddr4_0_300M_peripheral_aresetn),
@@ -413,7 +417,8 @@ module design_1
         .s_axi_wready(axi_smc_M01_AXI_WREADY),
         .s_axi_wstrb(axi_smc_M01_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M01_AXI_WVALID),
-        .tx(axi_uartlite_0_UART_TxD));
+        .sin(axi_uart16550_0_UART_RxD),
+        .sout(axi_uart16550_0_UART_TxD));
   design_1_ddr4_0_0 ddr4_0
        (.c0_ddr4_act_n(ddr4_0_C0_DDR4_ACT_N),
         .c0_ddr4_adr(ddr4_0_C0_DDR4_ADR),

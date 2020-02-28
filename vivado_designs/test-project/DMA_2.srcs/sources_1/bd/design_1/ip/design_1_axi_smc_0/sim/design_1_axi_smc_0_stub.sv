@@ -224,7 +224,7 @@ module design_1_axi_smc_0 (
   input bit_as_bool M00_AXI_rlast,
   input bit_as_bool M00_AXI_rvalid,
   output bit_as_bool M00_AXI_rready,
-  output bit [3 : 0] M01_AXI_awaddr,
+  output bit [12 : 0] M01_AXI_awaddr,
   output bit [2 : 0] M01_AXI_awprot,
   output bit_as_bool M01_AXI_awvalid,
   input bit_as_bool M01_AXI_awready,
@@ -235,7 +235,7 @@ module design_1_axi_smc_0 (
   input bit [1 : 0] M01_AXI_bresp,
   input bit_as_bool M01_AXI_bvalid,
   output bit_as_bool M01_AXI_bready,
-  output bit [3 : 0] M01_AXI_araddr,
+  output bit [12 : 0] M01_AXI_araddr,
   output bit [2 : 0] M01_AXI_arprot,
   output bit_as_bool M01_AXI_arvalid,
   input bit_as_bool M01_AXI_arready,
@@ -431,7 +431,7 @@ module design_1_axi_smc_0 (aclk,aclk1,aclk2,aclk3,aresetn,S00_AXI_awid,S00_AXI_a
   input bit M00_AXI_rlast;
   input bit M00_AXI_rvalid;
   output wire M00_AXI_rready;
-  output wire [3 : 0] M01_AXI_awaddr;
+  output wire [12 : 0] M01_AXI_awaddr;
   output wire [2 : 0] M01_AXI_awprot;
   output wire M01_AXI_awvalid;
   input bit M01_AXI_awready;
@@ -442,7 +442,7 @@ module design_1_axi_smc_0 (aclk,aclk1,aclk2,aclk3,aresetn,S00_AXI_awid,S00_AXI_a
   input bit [1 : 0] M01_AXI_bresp;
   input bit M01_AXI_bvalid;
   output wire M01_AXI_bready;
-  output wire [3 : 0] M01_AXI_araddr;
+  output wire [12 : 0] M01_AXI_araddr;
   output wire [2 : 0] M01_AXI_arprot;
   output wire M01_AXI_arvalid;
   input bit M01_AXI_arready;
@@ -635,7 +635,7 @@ module design_1_axi_smc_0 (aclk,aclk1,aclk2,aclk3,aresetn,S00_AXI_awid,S00_AXI_a
   input bit M00_AXI_rlast;
   input bit M00_AXI_rvalid;
   output wire M00_AXI_rready;
-  output wire [3 : 0] M01_AXI_awaddr;
+  output wire [12 : 0] M01_AXI_awaddr;
   output wire [2 : 0] M01_AXI_awprot;
   output wire M01_AXI_awvalid;
   input bit M01_AXI_awready;
@@ -646,7 +646,7 @@ module design_1_axi_smc_0 (aclk,aclk1,aclk2,aclk3,aresetn,S00_AXI_awid,S00_AXI_a
   input bit [1 : 0] M01_AXI_bresp;
   input bit M01_AXI_bvalid;
   output wire M01_AXI_bready;
-  output wire [3 : 0] M01_AXI_araddr;
+  output wire [12 : 0] M01_AXI_araddr;
   output wire [2 : 0] M01_AXI_arprot;
   output wire M01_AXI_arvalid;
   input bit M01_AXI_arready;

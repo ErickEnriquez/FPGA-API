@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1'
+HD_PWD='/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc rfile:../../../DMA_2.srcs/constrs_1/new/new_contraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc rfile:../../../DMA_2.srcs/constrs_1/new/new_contraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property IOSTANDARD LVCMOS18 [get_ports {reset_rtl[0]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

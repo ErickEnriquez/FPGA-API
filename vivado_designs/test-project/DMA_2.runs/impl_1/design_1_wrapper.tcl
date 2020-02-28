@@ -72,17 +72,17 @@ set rc [catch {
   set_property board_part xilinx.com:kcu105:part0:1.6 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/wt [current_project]
-  set_property parent.project_path /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.xpr [current_project]
-  set_property ip_output_repo /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/wt [current_project]
+  set_property parent.project_path /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.xpr [current_project]
+  set_property ip_output_repo /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/design_1_wrapper.dcp
+  add_files -quiet /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/design_1_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/design_1.bd
+  add_files /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/design_1.bd
   set_param project.isImplRun false
-  read_xdc /home/luke/Capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc
+  read_xdc /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc
   set_param project.isImplRun true
   link_design -top design_1_wrapper -part xcku040-ffva1156-2-e
   set_param project.isImplRun false

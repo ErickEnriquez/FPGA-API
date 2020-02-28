@@ -238,11 +238,11 @@ module bd_afc3_wrapper
   input M00_AXI_wready;
   output [63:0]M00_AXI_wstrb;
   output M00_AXI_wvalid;
-  output [3:0]M01_AXI_araddr;
+  output [12:0]M01_AXI_araddr;
   output [2:0]M01_AXI_arprot;
   input M01_AXI_arready;
   output M01_AXI_arvalid;
-  output [3:0]M01_AXI_awaddr;
+  output [12:0]M01_AXI_awaddr;
   output [2:0]M01_AXI_awprot;
   input M01_AXI_awready;
   output M01_AXI_awvalid;
@@ -437,11 +437,11 @@ module bd_afc3_wrapper
   wire M00_AXI_wready;
   wire [63:0]M00_AXI_wstrb;
   wire M00_AXI_wvalid;
-  wire [3:0]M01_AXI_araddr;
+  wire [12:0]M01_AXI_araddr;
   wire [2:0]M01_AXI_arprot;
   wire M01_AXI_arready;
   wire M01_AXI_arvalid;
-  wire [3:0]M01_AXI_awaddr;
+  wire [12:0]M01_AXI_awaddr;
   wire [2:0]M01_AXI_awprot;
   wire M01_AXI_awready;
   wire M01_AXI_awvalid;

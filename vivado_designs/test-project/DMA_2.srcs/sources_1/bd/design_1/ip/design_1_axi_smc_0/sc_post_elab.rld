@@ -71,7 +71,7 @@
 /config/M01_Exit/DATA_WIDTH/value=32
 /config/M01_Exit/ID_WIDTH/value=0
 /config/M01_Exit/PROTOCOL/value=AXI4LITE
-/config/M01_Exit/ADDR_WIDTH/value=4
+/config/M01_Exit/ADDR_WIDTH/value=13
 /timing/SW0/AR_M_PIPE/value=1;range=0..8;strength=0
 /timing/SW0/AR_S_PIPE/value=0;range=0..8;strength=0
 /timing/SW0/AW_M_PIPE/value=1;range=0..8;strength=0
