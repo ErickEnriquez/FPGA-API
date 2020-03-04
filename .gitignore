@@ -1,0 +1,11 @@
+#ignore Vivado designs so we only keep track of changes to the parser on this branch
+vivado_designs
+
+#ignore DS_Store on OSX
+.DS_Store
+
+#ignore vscode debug folder
+.vscode
+
+#ignore the parser.dSYM folder
+parser.dSYM
