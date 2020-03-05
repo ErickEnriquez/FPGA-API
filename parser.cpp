@@ -20,18 +20,19 @@
 using namespace std;
 
 void parser(int, string *);
-void transfer(char *fileName, string peripheral);
-void read(char *fileName);
+void dma_to_device(char *fileName, string Address);
+void dma_from_device(char *fileName);
 void deleter(char *fileName);
-void helper();
 int string_splitter(string, string *);
+bool string_case_compare(string , string);
+unsigned long check_address(string);
 void print_error();
+void helper();
 
 int main(int argc, char **argv)
 {
-    string end;
     string running_input;
-    string *input_buffer = new string[3];
+    string *input_buffer = new string[3];//buffer to hold user commands
     for (int i = 1; i < argc; i++)
     {
         input_buffer[i - 1] = argv[i];
@@ -45,28 +46,27 @@ int main(int argc, char **argv)
             helper();                                        //print the info
         getline(cin, running_input, '\n');                   //get user input
         argc = string_splitter(running_input, input_buffer); //split the input
-
-        end = input_buffer[0];
-    } while (end != "QUIT" && end != "Quit" && end != "quit");
+    } while (string_case_compare("Quit",input_buffer[0]) == false);
     return 0;
 }
 
 void parser(int argc, string *argv)
 {
-    if (argv[0] == "HELP")
+    if (string_case_compare("help",argv[0]) == true)
         helper();
-    else if (argv[0] == "delete")
+    else if (string_case_compare("delete",argv[0]) == true)
     {
         char *file_name = new char[argv[1].size() + 1];
-        strncpy(file_name, argv[1].c_str(), argv[1].size());
+        strncpy(file_name, argv[1].c_str(), argv[1].size());//copy the string to a Cstring
         deleter(file_name);
     }
-    else if (argv[0] == "dma_to_device")
+    else if (string_case_compare("dma_to_device",argv[0]) == true)
     {
         if (argv[1].empty() == false)
         {
             if (argv[2].empty() == false)
             { //if we have a valid dma from host to card transfer
+                unsigned long Address = check_address(argv[2]);
             }
             else
                 print_error();
@@ -74,12 +74,13 @@ void parser(int argc, string *argv)
         else
             print_error();
     }
-    else if (argv[0] == "dma_from_device")
+    else if (string_case_compare("dma_from_device",argv[0]) == true)
     {
         if (argv[1].empty() == false)
         {
             if (argv[2].empty() == false)
             { //if we have a valid dma from card to host transfer
+              //  char* Address = 
             }
             else
                 print_error();
@@ -133,17 +134,18 @@ void deleter(char *fileName)
 }
 void helper()
 {
+    cout << "\n\n";
     cout << "The following commands can be passed to the command-line interface:" << endl;
-    cout << "To transfer file from PC to FPGA card: 'dma_to_device' 'file_name' 'Device Address' " << endl;
-    cout << "To transfer files from FPGA to DMA : dma_from_device 'file_name' 'Device Address' " << endl;
-    cout << "To delete a file: 'delete' 'file name'" << endl;
+    cout << "To transfer file from PC to FPGA card : 'dma_to_device' 'file_name' 'Device Address' " << endl;
+    cout << "To transfer files from FPGA to PC : 'dma_from_device' 'file_name' 'Device Address' " << endl;
+    cout << "To delete a file : 'delete' 'file name'" << endl;
     cout << "Type QUIT to quit." << endl;
     cout << "Type HELP to repeat this" << endl;
-    cout << "Device Addresses" << endl;
+    cout << "\nCommon Device Addresses" << endl;
     printf("DDR4 : Is at address 0x%08X \n", DDR4);
     printf("UART_BASE : Is at address 0x%08X \n", UART_BASE);
     printf("UART_STATUS_CONTROL : Is at address 0x%08X \n", UART_STATUS_CONTROL);
-    printf("Ethernet : Is at address 0x%08X \n", ETHERNET);
+    printf("ETHERNET : Is at address 0x%08X \n", ETHERNET);
     printf("USB : Is at address 0x%08X \n", USB);
 }
 
@@ -168,6 +170,31 @@ int string_splitter(string input, string *array)
 
 void print_error()
 {
-    cout << "ERROR INVALID ARGUMENTS \n\n";
+    cout << "\n\nERROR INVALID ARGUMENTS \n\n";
     helper();
+}
+
+//helper function doing case insensitive comparision
+bool string_case_compare(string s1, string s2){
+	transform(s1.begin(), s1.end(), s1.begin(), ::toupper);
+    transform(s2.begin(), s2.end(), s2.begin(), ::toupper);
+    if( s1 == s2)
+        return true;
+    else
+        return false;
+}
+
+unsigned long check_address(string s1){
+    if(string_case_compare(s1,"DDR4") == true)
+        return DDR4;
+    else if(string_case_compare(s1,"UART_BASE") == true)
+        return UART_BASE;
+    else if(string_case_compare(s1,"UART_STATUS_CONSTROL") == true)
+        return UART_STATUS_CONTROL;
+    else if(string_case_compare(s1,"ETHERNET") == true)
+        return ETHERNET;
+    else if(string_case_compare(s1,"USB") == true)
+        return USB;
+    else
+        return stoul(s1,nullptr,10);//convert the string to an unsigne long
 }
