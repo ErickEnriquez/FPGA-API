@@ -1,7 +1,15 @@
+#ifdef __WIN32
+    #include <Windows.h>               //strncpy
+#elif __linux__
+    //any linux specific libraries
+#endif
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <fstream>
+#include <algorithm>    // std::transform
+
 
 #define DDR4 0x80000000                // Base DMA
 #define UART_BASE 0x44A01000           // BaseUART
