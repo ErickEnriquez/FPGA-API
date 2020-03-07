@@ -20,8 +20,8 @@
 using namespace std;
 
 void parser(int, string *);
-void dma_to_device(char *fileName, string Address);
-void dma_from_device(char *fileName);
+void dma_to_device(char *fileName, unsigned long Address);
+void dma_from_device(char *fileName , unsigned long Address);
 void deleter(char *fileName);
 int string_splitter(string, string *);
 bool string_case_compare(string , string);
@@ -67,6 +67,9 @@ void parser(int argc, string *argv)
             if (argv[2].empty() == false)
             { //if we have a valid dma from host to card transfer
                 unsigned long Address = check_address(argv[2]);
+                char* filename = new char[argv[1].size() + 1];
+                strncpy(filename, argv[1].c_str(), argv[1].size());//copy the string to a Cstring
+                dma_to_device(filename,Address);
             }
             else
                 print_error();
@@ -80,7 +83,10 @@ void parser(int argc, string *argv)
         {
             if (argv[2].empty() == false)
             { //if we have a valid dma from card to host transfer
-              //  char* Address = 
+              unsigned long Address = check_address(argv[2]);
+                char* filename = new char[argv[1].size() + 1];
+                strncpy(filename, argv[1].c_str(), argv[1].size());//copy the string to a Cstring
+                dma_from_device(filename,Address);
             }
             else
                 print_error();
@@ -92,7 +98,7 @@ void parser(int argc, string *argv)
         print_error();
 }
 
-void transfer(char *fileName, string port)
+void dma_to_device(char *fileName, unsigned long Address)
 {
     //Code for finding the file path & processing the file goes here
     FILE *transferFile; //Pointer to the File
@@ -109,7 +115,7 @@ void transfer(char *fileName, string port)
     }
 }
 
-void read(char *fileName)
+void dma_from_device(char *fileName , unsigned long Address)
 {
     //Code for finding the file in the FPGA & retrieving goes here
     FILE *fileData;
