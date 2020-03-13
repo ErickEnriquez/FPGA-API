@@ -9,7 +9,7 @@
 #endif
 
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <stdlib.h>
 #include <fstream>
 #include <algorithm> // std::transform
@@ -153,10 +153,11 @@ void dma_to_device(char *fileName, unsigned long Address)
             // -s SIZE OF THE FILE
             // -a ADDRESS OFFSET
             // -c TRANSFER COUNT
-            char* size, addr;
-            addr = (char*)malloc(8);//store the 8 bytes
-            sprintf(addr,"%d",Address);
-            char* args[] = {"-d ", " -f ", fileName, " -s ", " -a ", , " -c ", NULL};
+            char* size;
+            char* addr;
+            addr = (char*)malloc(sizeof(char*) * 8);//allocate the 8 bytes
+            sprintf(addr,"%lu",Address);
+            char* args[] = {"-d ", " -f ", fileName, " -s ", " -a ",addr , " -c ", NULL};
             execvp(DMA_TO_DEVICE_EXE,args);
         }
         else
