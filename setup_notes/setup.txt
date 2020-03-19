@@ -1,0 +1,45 @@
+**Linux Users**
+
+*Short version*
+0) Program KCU105 with project bitfile and plug into machine in PCIe slot
+1) Use kernel version 4.15.0-91-generic on host machine
+2) Install all packages in setup_notes/installed_packages.txt
+3) make Linux-PCIe-DMA-Driver/XDMA/linux-kernel/xdma/Makefile
+4) run Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tests/load_driver.sh
+5) start using Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_from_device
+and dma_to_device to perform transfers of your data to the various
+memory-mapped peripherals. 
+
+*Long version*
+
+First and foremost, before trying to set up this Xilinx DMA system,
+ensure that you are using a compatible kernel version
+(4.15.0-91-generic works out-of-box or see the file 
+"other_setup_instructions.txt" for more info if not possible).  
+This can be checked with the command $uname -r, and installed kernel
+versions can be shown with the command $dpkg -l | grep linux-image.
+
+If you are running into problems getting the right kernel image to
+boot (my grub would not detect my keyboard for instance) follow
+instructions here:
+https://askubuntu.com/questions/216398/set-older-kernel-as-default-grub-entry
+
+Once you have made sure that you have a working kernel version, go ahead and
+install all the packages in install_packages.txt via 
+$sudo apt install $(cat installed_packages.txt)
+
+Once that has finished, navigate to (FPGA_API/Linux-PCIe-DMA-Driver/
+XDMA/linux-kernel/xdma) and make the makefile there.  If that goes off
+without a hitch, you're in business.  If it doesn't, figure out why and come
+back later.
+
+Once the makefile has been run, navigate up one directory to tests and 
+(set executable and) run the "load_driver.sh" file.  Again, this should give
+the exact message:
+Loading xdma driver...
+Error: The Kernel module installed correctly, but no devices were recognized.
+ FAILED
+This is good. (FPGA setup is the next section).
+
+If this did not work then something went wrong with the driver install in the
+preceding paragraphs.
