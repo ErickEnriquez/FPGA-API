@@ -411,8 +411,8 @@ void windows_transfer_to_card(){
     #endif
 
 }
-void windows_transfer_to_card(){
-        #ifdef __WIN32
+void windows_transfer_from_card(){
+    #ifdef __WIN32
      STARTUPINFO si;
     PROCESS_INFORMATION pi;
 
