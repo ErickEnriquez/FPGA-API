@@ -9,6 +9,7 @@
 #include <errno.h>     //printing errors
 #endif
 
+#include <string>
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
@@ -21,8 +22,10 @@
 #define ETHERNET 0x00000000            //placeholder
 #define USB 0x00000000                 //placeholder
 
-#define DMA_TO_DEVICE_EXE "/Linux-PCIe-DMA-Driver/tools/dma_to_device"
-#define DMA_FROM_DEVICE_EXE "/Linux-PCIe-DMA-Driver/tools/dma_from_device"
+#define LINUX_TO_DEVICE "/Linux-PCIe-DMA-Driver/tools/dma_to_device"
+#define LINUX_FROM_DEVICE "/Linux-PCIe-DMA-Driver/tools/dma_from_device"
+#define WINDOWS_TO_DEVICE ""
+#define WINDOWS_FROM_DEVICE ""
 
 /*What wae are going to need in order to make a successful host to card or card to host transfer transfer is 
 -d DEVICE
@@ -43,10 +46,10 @@ bool string_case_compare(string, string);
 unsigned long check_address(string);
 void print_error();
 void helper();
-void windows_transfer_from_card();
-void windows_transfer_to_card();
-void linux_transfer_to_card();
-void linux_transfer_from_card();
+void windows_transfer_from_card(char * file, unsigned long Address);
+void windows_transfer_to_card(char* file, unsigned long Address);
+void linux_transfer_to_card(char* filename , unsigned long address);
+void linux_transfer_from_card(char* filename , unsigned long address);
 
 int main(int argc, char **argv)
 {
@@ -136,6 +139,7 @@ void dma_to_device(char *fileName, unsigned long Address)
         fclose(transferFile);
 #ifdef __WIN32
         //use create_proccess() to call the driver
+        
 
 #elif __linux__
 
@@ -236,7 +240,7 @@ unsigned long check_address(string s1)
         return stoul(s1, nullptr, 10); //convert the string to an unsigne long
 }
 
-void linux_transfer_to_card(){
+void linux_transfer_to_card(char* filename , unsigned long address){
     #ifdef __linux__
     pid_t pid; //proccess id
         int ret = 1;
@@ -303,7 +307,7 @@ void linux_transfer_to_card(){
     #endif
 }
 
-void linux_transfer_from_card(){
+void linux_transfer_from_card(char* filename , unsigned long address){
     #ifdef __linux__
     pid_t pid; //proccess id
         int ret = 1;
@@ -370,7 +374,7 @@ void linux_transfer_from_card(){
     #endif
 }
 
-void windows_transfer_to_card(){
+void windows_transfer_to_card(char * file, unsigned long Address){
     #ifdef __WIN32
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
@@ -379,15 +383,10 @@ void windows_transfer_to_card(){
     si.cb = sizeof(si);
     ZeroMemory( &pi, sizeof(pi) );
 
-    if( argc != 2 )
-    {
-        printf("Usage: %s [cmdline]\n", argv[0]);
-        return;
-    }
 
     // Start the child process. 
     if( !CreateProcess( NULL,   // No module name (use command line)
-        argv[1],        // Command line
+        NULL,        // Command line args here NEED TO FILL IN
         NULL,           // Process handle not inheritable
         NULL,           // Thread handle not inheritable
         FALSE,          // Set handle inheritance to FALSE
@@ -411,7 +410,7 @@ void windows_transfer_to_card(){
     #endif
 
 }
-void windows_transfer_from_card(){
+void windows_transfer_from_card(char * file, unsigned long Address){
     #ifdef __WIN32
      STARTUPINFO si;
     PROCESS_INFORMATION pi;
@@ -420,15 +419,11 @@ void windows_transfer_from_card(){
     si.cb = sizeof(si);
     ZeroMemory( &pi, sizeof(pi) );
 
-    if( argc != 2 )
-    {
-        printf("Usage: %s [cmdline]\n", argv[0]);
-        return;
-    }
+  
 
     // Start the child process. 
     if( !CreateProcess( NULL,   // No module name (use command line)
-        argv[1],        // Command line
+        NULL,        // Command line args here as single string NEED TO FILL IN
         NULL,           // Process handle not inheritable
         NULL,           // Thread handle not inheritable
         FALSE,          // Set handle inheritance to FALSE
