@@ -37,7 +37,19 @@ elif arguments[0] == 'h2c_write':
             str(args.f)
         )
     elif sys.platform == 'linux':
-        print('on linux')
+        argument_string = (
+            'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
+            '-d ' +
+            '/dev/xdma0_h2c_1 ' +
+            '-f ' +
+            str(args.f) +
+            ' -s ' + 
+            '1 ' + 
+            '-a ' +
+            str(args.a)+
+            ' -c ' + 
+            ' 1' 
+        )
        
     subprocess.Popen(argument_string)
 
@@ -60,7 +72,21 @@ elif arguments[0] == 'c2h_read':
             str(args.l)  
     )
     elif sys.platform == 'linux':
-        print('on linux')
+        argument_string = (
+            'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_from_device '
+            '-d ' +
+            '/dev/xdma0_c2h_1 ' +
+            '-f ' +
+            str(args.f) +
+            ' -s ' + 
+            '1 ' + 
+            '-a ' +
+            str(args.a)+
+            ' -c ' + 
+            ' 1' 
+        )
+       
+        
     subprocess.Popen(argument_string)
 
 #=======================================================================================================================================================
