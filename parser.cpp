@@ -378,18 +378,21 @@ void linux_transfer_from_card(char *filename, unsigned long address)
 void windows_transfer_to_card(char *file, unsigned long Address)
 {
 #ifdef __WIN32
-    "C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_info.exe";
+    
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
-    TCHAR * path = TEXT("C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_info.exe");
-
+    TCHAR** args  = new TCHAR*[3];
+    args[0] = TEXT("C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe");
+    args[1] = TEXT("h2c_1");
+    args[2] = TEXT("write");
+    //args[3] = TEXT(Address);
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
 
     // Start the child process.
     if (!CreateProcess(NULL,  // No module name (use command line)
-                      path,  // Command line args here NEED TO FILL IN
+      //                path,  // Command line args here NEED TO FILL IN
                        NULL,  // Process handle not inheritable
                        NULL,  // Thread handle not inheritable
                        FALSE, // Set handle inheritance to FALSE
@@ -403,10 +406,10 @@ void windows_transfer_to_card(char *file, unsigned long Address)
         printf("CreateProcess failed (%d).\n", GetLastError());
         return;
     }
-
+     printf("before wait\n");
     // Wait until child process exits.
-    WaitForSingleObject(pi.hProcess, INFINITE);
-
+    WaitForSingleObject(pi.hProcess, 1111);
+    printf("after wait\n");
     // Close process and thread handles.
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
