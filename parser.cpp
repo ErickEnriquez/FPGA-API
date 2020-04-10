@@ -24,7 +24,7 @@
 
 #define LINUX_TO_DEVICE "/Linux-PCIe-DMA-Driver/tools/dma_to_device"
 #define LINUX_FROM_DEVICE "/Linux-PCIe-DMA-Driver/tools/dma_from_device"
-#define WINDOWS_TO_DEVICE ""
+#define WINDOWS_TO_DEVICE "C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_info.exe"
 #define WINDOWS_FROM_DEVICE ""
 
 /*What wae are going to need in order to make a successful host to card or card to host transfer transfer is 
@@ -46,10 +46,10 @@ bool string_case_compare(string, string);
 unsigned long check_address(string);
 void print_error();
 void helper();
-void windows_transfer_from_card(char * file, unsigned long Address);
-void windows_transfer_to_card(char* file, unsigned long Address);
-void linux_transfer_to_card(char* filename , unsigned long address);
-void linux_transfer_from_card(char* filename , unsigned long address);
+void windows_transfer_from_card(char *file, unsigned long Address);
+void windows_transfer_to_card(char *file, unsigned long Address);
+void linux_transfer_to_card(char *filename, unsigned long address);
+void linux_transfer_from_card(char *filename, unsigned long address);
 
 int main(int argc, char **argv)
 {
@@ -139,11 +139,10 @@ void dma_to_device(char *fileName, unsigned long Address)
         fclose(transferFile);
 #ifdef __WIN32
         //use create_proccess() to call the driver
-        
+        windows_transfer_to_card(fileName,Address);
 
 #elif __linux__
 
-        
 #endif
     }
 }
@@ -240,209 +239,211 @@ unsigned long check_address(string s1)
         return stoul(s1, nullptr, 10); //convert the string to an unsigne long
 }
 
-void linux_transfer_to_card(char* filename , unsigned long address){
-    #ifdef __linux__
+void linux_transfer_to_card(char *filename, unsigned long address)
+{
+#ifdef __linux__
     pid_t pid; //proccess id
-        int ret = 1;
-        int status;
-        pid = fork();// create a forked proccess
-        if (pid == -1)
-        { //error occured
-            printf("Error occured , couldn't fork\n");
-            exit(EXIT_FAILURE);
-        }
-        else if (pid == 0)
+    int ret = 1;
+    int status;
+    pid = fork(); // create a forked proccess
+    if (pid == -1)
+    { //error occured
+        printf("Error occured , couldn't fork\n");
+        exit(EXIT_FAILURE);
+    }
+    else if (pid == 0)
+    {
+        printf("child proccess : %u started", getpid());
+        // -d DEVICE
+        // -f FILE TO BE TRANSFERED
+        // -s SIZE OF THE FILE
+        // -a ADDRESS OFFSET
+        // -c TRANSFER COUNT
+        char *size;
+        char *addr;
+        addr = (char *)malloc(sizeof(char *) * 8); //allocate the 8 bytes
+        sprintf(addr, "%lu", Address);
+        char *args[] = {"-d ", " -f ", fileName, " -s ", " -a ", addr, " -c ", NULL};
+        execvp(DMA_TO_DEVICE_EXE, args);
+    }
+    else
+    {
+        //we get a positive number which corresponds to the pid of the parent proccess
+
+        printf("parent process, pid = %u\n", getppid());
+
+        // the parent process calls waitpid() on the child
+        // waitpid() system call suspends execution of
+        // calling process until a child specified by pid
+        // argument has changed state
+        // see wait() man page for all the flags or options
+        // used here
+
+        if (waitpid(pid, &status, 0) > 0)
         {
-            printf("child proccess : %u started", getpid());
-            // -d DEVICE
-            // -f FILE TO BE TRANSFERED
-            // -s SIZE OF THE FILE
-            // -a ADDRESS OFFSET
-            // -c TRANSFER COUNT
-            char* size;
-            char* addr;
-            addr = (char*)malloc(sizeof(char*) * 8);//allocate the 8 bytes
-            sprintf(addr,"%lu",Address);
-            char* args[] = {"-d ", " -f ", fileName, " -s ", " -a ",addr , " -c ", NULL};
-            execvp(DMA_TO_DEVICE_EXE,args);
+            if (WIFEXITED(status) && !WEXITSTATUS(status))
+                printf("program execution successful\n");
+            else if (WIFEXITED(status) && WEXITSTATUS(status))
+            {
+                if (WEXITSTATUS(status) == 127)
+                {
+                    // execv failed
+                    printf("execv failed\n");
+                }
+
+                else
+                    printf("program terminated normally, but returned a non-zero status\n");
+            }
+            else
+                printf("program didn't terminate normally\n");
         }
         else
         {
-            //we get a positive number which corresponds to the pid of the parent proccess
-
-            printf("parent process, pid = %u\n", getppid());
-
-            // the parent process calls waitpid() on the child
-            // waitpid() system call suspends execution of
-            // calling process until a child specified by pid
-            // argument has changed state
-            // see wait() man page for all the flags or options
-            // used here
-
-            if (waitpid(pid, &status, 0) > 0)
-            {
-                if (WIFEXITED(status) && !WEXITSTATUS(status))
-                    printf("program execution successful\n");
-                else if (WIFEXITED(status) && WEXITSTATUS(status))
-                {
-                    if (WEXITSTATUS(status) == 127)
-                    {
-                        // execv failed
-                        printf("execv failed\n");
-                    }
-
-                    else
-                        printf("program terminated normally, but returned a non-zero status\n");
-                }
-                else
-                    printf("program didn't terminate normally\n");
-            }
-            else
-            {
-                // waitpid() failed
-                printf("waitpid() failed\n");
-            }
-            exit(0);
+            // waitpid() failed
+            printf("waitpid() failed\n");
         }
-    #endif
+        exit(0);
+    }
+#endif
 }
 
-void linux_transfer_from_card(char* filename , unsigned long address){
-    #ifdef __linux__
+void linux_transfer_from_card(char *filename, unsigned long address)
+{
+#ifdef __linux__
     pid_t pid; //proccess id
-        int ret = 1;
-        int status;
-        pid = fork();// create a forked proccess
-        if (pid == -1)
-        { //error occured
-            printf("Error occured , couldn't fork\n");
-            exit(EXIT_FAILURE);
-        }
-        else if (pid == 0)
+    int ret = 1;
+    int status;
+    pid = fork(); // create a forked proccess
+    if (pid == -1)
+    { //error occured
+        printf("Error occured , couldn't fork\n");
+        exit(EXIT_FAILURE);
+    }
+    else if (pid == 0)
+    {
+        printf("child proccess : %u started", getpid());
+        // -d DEVICE
+        // -f FILE TO BE TRANSFERED
+        // -s SIZE OF THE FILE
+        // -a ADDRESS OFFSET
+        // -c TRANSFER COUNT
+        char *size;
+        char *addr;
+        addr = (char *)malloc(sizeof(char *) * 8); //allocate the 8 bytes
+        sprintf(addr, "%lu", Address);
+        char *args[] = {"-d ", " -f ", fileName, " -s ", " -a ", addr, " -c ", NULL};
+        execvp(DMA_TO_DEVICE_EXE, args);
+    }
+    else
+    {
+        //we get a positive number which corresponds to the pid of the parent proccess
+
+        printf("parent process, pid = %u\n", getppid());
+
+        // the parent process calls waitpid() on the child
+        // waitpid() system call suspends execution of
+        // calling process until a child specified by pid
+        // argument has changed state
+        // see wait() man page for all the flags or options
+        // used here
+
+        if (waitpid(pid, &status, 0) > 0)
         {
-            printf("child proccess : %u started", getpid());
-            // -d DEVICE
-            // -f FILE TO BE TRANSFERED
-            // -s SIZE OF THE FILE
-            // -a ADDRESS OFFSET
-            // -c TRANSFER COUNT
-            char* size;
-            char* addr;
-            addr = (char*)malloc(sizeof(char*) * 8);//allocate the 8 bytes
-            sprintf(addr,"%lu",Address);
-            char* args[] = {"-d ", " -f ", fileName, " -s ", " -a ",addr , " -c ", NULL};
-            execvp(DMA_TO_DEVICE_EXE,args);
+            if (WIFEXITED(status) && !WEXITSTATUS(status))
+                printf("program execution successful\n");
+            else if (WIFEXITED(status) && WEXITSTATUS(status))
+            {
+                if (WEXITSTATUS(status) == 127)
+                {
+                    // execv failed
+                    printf("execv failed\n");
+                }
+
+                else
+                    printf("program terminated normally, but returned a non-zero status\n");
+            }
+            else
+                printf("program didn't terminate normally\n");
         }
         else
         {
-            //we get a positive number which corresponds to the pid of the parent proccess
-
-            printf("parent process, pid = %u\n", getppid());
-
-            // the parent process calls waitpid() on the child
-            // waitpid() system call suspends execution of
-            // calling process until a child specified by pid
-            // argument has changed state
-            // see wait() man page for all the flags or options
-            // used here
-
-            if (waitpid(pid, &status, 0) > 0)
-            {
-                if (WIFEXITED(status) && !WEXITSTATUS(status))
-                    printf("program execution successful\n");
-                else if (WIFEXITED(status) && WEXITSTATUS(status))
-                {
-                    if (WEXITSTATUS(status) == 127)
-                    {
-                        // execv failed
-                        printf("execv failed\n");
-                    }
-
-                    else
-                        printf("program terminated normally, but returned a non-zero status\n");
-                }
-                else
-                    printf("program didn't terminate normally\n");
-            }
-            else
-            {
-                // waitpid() failed
-                printf("waitpid() failed\n");
-            }
-            exit(0);
+            // waitpid() failed
+            printf("waitpid() failed\n");
         }
-    #endif
+        exit(0);
+    }
+#endif
 }
 
-void windows_transfer_to_card(char * file, unsigned long Address){
-    #ifdef __WIN32
+void windows_transfer_to_card(char *file, unsigned long Address)
+{
+#ifdef __WIN32
+    "C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_info.exe";
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+    TCHAR * path = TEXT("C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_info.exe");
+
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
+
+    // Start the child process.
+    if (!CreateProcess(NULL,  // No module name (use command line)
+                      path,  // Command line args here NEED TO FILL IN
+                       NULL,  // Process handle not inheritable
+                       NULL,  // Thread handle not inheritable
+                       FALSE, // Set handle inheritance to FALSE
+                       0,     // No creation flags
+                       NULL,  // Use parent's environment block
+                       NULL,  // Use parent's starting directory
+                       &si,   // Pointer to STARTUPINFO structure
+                       &pi)   // Pointer to PROCESS_INFORMATION structure
+    )
+    {
+        printf("CreateProcess failed (%d).\n", GetLastError());
+        return;
+    }
+
+    // Wait until child process exits.
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
+    // Close process and thread handles.
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+#endif
+}
+void windows_transfer_from_card(char *file, unsigned long Address)
+{
+#ifdef __WIN32
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
 
-    ZeroMemory( &si, sizeof(si) );
+    ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
-    ZeroMemory( &pi, sizeof(pi) );
+    ZeroMemory(&pi, sizeof(pi));
 
-
-    // Start the child process. 
-    if( !CreateProcess( NULL,   // No module name (use command line)
-        NULL,        // Command line args here NEED TO FILL IN
-        NULL,           // Process handle not inheritable
-        NULL,           // Thread handle not inheritable
-        FALSE,          // Set handle inheritance to FALSE
-        0,              // No creation flags
-        NULL,           // Use parent's environment block
-        NULL,           // Use parent's starting directory 
-        &si,            // Pointer to STARTUPINFO structure
-        &pi )           // Pointer to PROCESS_INFORMATION structure
-    ) 
+    // Start the child process.
+    if (!CreateProcess(NULL,  // No module name (use command line)
+                       NULL,  // Command line args here as single string NEED TO FILL IN
+                       NULL,  // Process handle not inheritable
+                       NULL,  // Thread handle not inheritable
+                       FALSE, // Set handle inheritance to FALSE
+                       0,     // No creation flags
+                       NULL,  // Use parent's environment block
+                       NULL,  // Use parent's starting directory
+                       &si,   // Pointer to STARTUPINFO structure
+                       &pi)   // Pointer to PROCESS_INFORMATION structure
+    )
     {
-        printf( "CreateProcess failed (%d).\n", GetLastError() );
+        printf("CreateProcess failed (%d).\n", GetLastError());
         return;
     }
-
+    printf("before wait\n");
     // Wait until child process exits.
-    WaitForSingleObject( pi.hProcess, INFINITE );
-
-    // Close process and thread handles. 
-    CloseHandle( pi.hProcess );
-    CloseHandle( pi.hThread );
-    #endif
-
-}
-void windows_transfer_from_card(char * file, unsigned long Address){
-    #ifdef __WIN32
-     STARTUPINFO si;
-    PROCESS_INFORMATION pi;
-
-    ZeroMemory( &si, sizeof(si) );
-    si.cb = sizeof(si);
-    ZeroMemory( &pi, sizeof(pi) );
-
-  
-
-    // Start the child process. 
-    if( !CreateProcess( NULL,   // No module name (use command line)
-        NULL,        // Command line args here as single string NEED TO FILL IN
-        NULL,           // Process handle not inheritable
-        NULL,           // Thread handle not inheritable
-        FALSE,          // Set handle inheritance to FALSE
-        0,              // No creation flags
-        NULL,           // Use parent's environment block
-        NULL,           // Use parent's starting directory 
-        &si,            // Pointer to STARTUPINFO structure
-        &pi )           // Pointer to PROCESS_INFORMATION structure
-    ) 
-    {
-        printf( "CreateProcess failed (%d).\n", GetLastError() );
-        return;
-    }
-
-    // Wait until child process exits.
-    WaitForSingleObject( pi.hProcess, INFINITE );
-
-    // Close process and thread handles. 
-    CloseHandle( pi.hProcess );
-    CloseHandle( pi.hThread );
-    #endif
+    WaitForSingleObject(pi.hProcess, 1111);
+    printf("after wait\n");
+    // Close process and thread handles.
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+#endif
 }
