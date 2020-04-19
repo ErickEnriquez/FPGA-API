@@ -90,7 +90,7 @@ class GUI():
             elif sys.platform == 'linux':
                 argumentString = LinuxPathToXdma + '-d ' + '/dev/xdma0_h2c_1 ' + '-f ' + self.filename  +'-s ' + '1 ' + '-a ' + self.addressBox.get() + ' -c ' + '1' 
             subprocess.Popen(argumentString)#call the xdma driver
-        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() is not "" and self.lengthBox.get() is not "":
+        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "":
             self.errorMessage.set('') # clear the error message
             if sys.platform == 'win32':
                 argumentString = WindowsPathToXdma + 'c2h_1 ' + 'read ' + self.addressBox.get() + ' -l ' + self.lengthBox.get()

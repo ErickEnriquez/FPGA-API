@@ -9,3 +9,5 @@ vivado_designs
 
 #ignore the parser.dSYM folder
 parser.dSYM
+dummy.txt
+test2.txt
