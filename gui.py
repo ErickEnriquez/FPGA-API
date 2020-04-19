@@ -96,6 +96,7 @@ class GUI():
                 argumentString = WindowsPathToXdma + 'c2h_1 ' + 'read ' + self.addressBox.get() + ' -l ' + self.lengthBox.get()
             elif sys.platform == 'linux':
                 print('TBA')
+            subprocess.Popen(argumentString)#call the xdma driver
         else:
             self.errorMessage.set('Error, please ensure you have filled in all fields')
     
