@@ -6,6 +6,7 @@ import os
 import sys
 import binascii
 import time
+from setupUART import setup_uart
 
 
 WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
@@ -154,5 +155,5 @@ class GUI():
         os.remove('output.bin')#clean up proxy file
 
         
-            
-GUI()
+setup_uart() #setup the uart
+GUI()   #call the gui
