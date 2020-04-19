@@ -85,11 +85,7 @@ class GUI():
     def perfrom_transfer(self):
         if self.transfer_choice.get() == 'h2c' and self.filename != "":
             self.errorMessage.set('') # clear the error message
-            if sys.platform == 'win32':
-                argumentString = WindowsPathToXdma + 'h2c_1 ' + 'write ' + self.addressBox.get() + ' -f ' + self.filename
-            elif sys.platform == 'linux':
-                argumentString = LinuxPathToXdma + '-d ' + '/dev/xdma0_h2c_1 ' + '-f ' + self.filename  +'-s ' + '1 ' + '-a ' + self.addressBox.get() + ' -c ' + '1' 
-            subprocess.Popen(argumentString)#call the xdma driver
+            self.xdma_transfer()
         elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "":
             self.errorMessage.set('') # clear the error message
             if sys.platform == 'win32':
@@ -99,5 +95,21 @@ class GUI():
             subprocess.Popen(argumentString)#call the xdma driver
         else:
             self.errorMessage.set('Error, please ensure you have filled in all fields')
+
+    def xdma_transfer(self):
+        address = int(self.addressBox.get())
+        fp = open(self.filename,'rb')
+        while True:
+            data = fp.read(5242880) #read 5 MB
+            if not data:
+                break
+            with open('data.bin','wb') as temp:
+             temp.write(data)# write 5 MB to a file named data.bin
+            if sys.platform == 'win32':
+                args = WindowsPathToXdma + 'h2c_1 '  + 'write ' + str(address) + ' -f ' + 'data.bin'
+                address = address + len(data)#update the address
+                subprocess.Popen(args)#call the xdma driver
+        fp.close()
+            
     
 GUI()
