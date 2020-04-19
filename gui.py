@@ -6,6 +6,12 @@ import os
 import sys
 import binascii
 
+
+WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
+LinuxPathToXdma = 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
+
+
+
 class GUI():
     def __init__(self):
         self.root = Tk()
@@ -17,41 +23,42 @@ class GUI():
     
         title = Label(self.root, text="Select the mode you want to perfrom a transfer")
         fileNameLabel = Label(self.root,text='File Name')
-        addressLabel = Label(self.root,text="Address to read/write default is decimal , select option for hex")
+        addressLabel = Label(self.root,text="Address to read/write default is decimal by default , select option for hex")
+        lengthLabel = Label(self.root,text='Enter the number of bytes you want to read')
        
 
         self.transfer_choice = StringVar()
 
-        outputfile = Entry(self.root,text=self.filename,width=50)
-        self.output = outputfile
+        self.outputfile = Entry(self.root,text=self.filename,width=50)
+        self.output = self.outputfile
 
         self.addressBox = Entry(self.root,width=50)
+        self.lengthBox = Entry(self.root,width=50)
 
-        button1 = Button(self.root, text="Browse", command=self.open)
+        self.button1 = Button(self.root, text="Browse", command=self.open)
         button2 = Button(self.root, text="Perform transfer", command=self.perfrom_transfer)
         button3 = Button(self.root, text="Quit", command=self.root.quit)
 
-        radio1 = Radiobutton(self.root, text='host to card', value = 'h2c' , variable=self.transfer_choice)
-        radio2 = Radiobutton(self.root,text='card to host', value = 'c2h', variable = self.transfer_choice)
+        radio1 = Radiobutton(self.root, text='host to card', value = 'h2c' , variable=self.transfer_choice, command=self.host_to_card)
+        radio2 = Radiobutton(self.root,text='card to host', value = 'c2h', variable = self.transfer_choice, command=self.card_to_host)
         radioHexOption = Radiobutton(self.root,text='Address in hex', value =1, variable=self.hexOption)
 
         radio1.grid(column=0,row=1)
         radio2.grid(column=0,row=2)
         title.grid(column=1,row=0)
-        outputfile.grid(column=1,row=2)
-        self.errorLabel.grid(column=1,row=6)
-        button1.grid(column=2,row=2)
-        button2.grid(column=2,row=5)
-        button3.grid(column=3,row=5)
+        self.outputfile.grid(column=1,row=2)
+        self.errorLabel.grid(column=1,row=9)
+        self.button1.grid(column=2,row=2)
+        button2.grid(column=2,row=8)
+        button3.grid(column=3,row=8)
         
     
         self.addressBox.grid(column =1,row=4)
         radioHexOption.grid(column=2,row=4)
         fileNameLabel.grid(column=1,row=1)
         addressLabel.grid(column=1,row=3)
-
-
-        
+        lengthLabel.grid(column=1,row=5)
+        self.lengthBox.grid(column=1,row=6)
 
         self.root.mainloop()
 
@@ -63,15 +70,33 @@ class GUI():
         self.output.insert(0,result)
         
 
+    #disables the data length box when doing host to card transfers as it is not needed
+    def host_to_card(self):
+        self.outputfile.config(state='normal')
+        self.button1.config(state='normal')
+        self.lengthBox.config(state='disabled')
+
+    #disables the file and the browse buttons when doing carrd to host transfers to help user
+    def card_to_host(self):
+        self.lengthBox.config(state='normal')
+        self.outputfile.config(state='disabled') #disable the filename entry
+        self.button1.config(state='disabled')
+
     def perfrom_transfer(self):
         if self.transfer_choice.get() == 'h2c' and self.filename != "":
             self.errorMessage.set('') # clear the error message
-            print(self.filename,self.addressBox.get())
-            
-        elif self.transfer_choice.get() == 'c2h' and self.filename != "":
+            if sys.platform == 'win32':
+                argumentString = WindowsPathToXdma + 'h2c_1 ' + 'write ' + self.addressBox.get() + ' -f ' + self.filename
+            elif sys.platform == 'linux':
+                argumentString = LinuxPathToXdma + '-d ' + '/dev/xdma0_h2c_1 ' + '-f ' + self.filename  +'-s ' + '1 ' + '-a ' + self.addressBox.get() + ' -c ' + '1' 
+            subprocess.Popen(argumentString)#call the xdma driver
+        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() is not "" and self.lengthBox.get() is not "":
             self.errorMessage.set('') # clear the error message
-            print('c2h')
+            if sys.platform == 'win32':
+                argumentString = WindowsPathToXdma + 'c2h_1 ' + 'read ' + self.addressBox.get() + ' -l ' + self.lengthBox.get()
+            elif sys.platform == 'linux':
+                print('TBA')
         else:
-            self.errorMessage.set('Error, please check you have selected a file and a transfer method')
+            self.errorMessage.set('Error, please ensure you have filled in all fields')
     
 GUI()
