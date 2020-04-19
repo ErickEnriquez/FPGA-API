@@ -11,6 +11,7 @@ import time
 WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
 LinuxPathToXdma = 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
 
+MAX_BUFFER_SIZE = 5242880 # 5 MB which is size of Xdma buffer
 
 class GUI():
     def __init__(self):
@@ -43,7 +44,7 @@ class GUI():
 
         radio1 = Radiobutton(self.root, text='host to card', value = 'h2c' , variable=self.transfer_choice, command=self.host_to_card)
         radio2 = Radiobutton(self.root,text='card to host', value = 'c2h', variable = self.transfer_choice, command=self.card_to_host)
-        radioHexOption = Radiobutton(self.root,text='Address in hex', value =1, variable=self.hexOption)
+        checkBoxHexOption = Checkbutton(self.root,text='Address in hex', variable=self.hexOption)
 
         radio1.grid(column=0,row=1)
         radio2.grid(column=0,row=2)
@@ -56,7 +57,7 @@ class GUI():
         
     
         self.addressBox.grid(column =1,row=4)
-        radioHexOption.grid(column=2,row=4)
+        checkBoxHexOption.grid(column=2,row=4)
         fileNameLabel.grid(column=1,row=1)
         addressLabel.grid(column=1,row=3)
         lengthLabel.grid(column=1,row=5)
@@ -99,16 +100,20 @@ class GUI():
             self.errorMessage.set('Error, please ensure you have filled in all fields')
 
     def xdma_transfer_to_card(self):
-        address = int(self.addressBox.get())
+        if self.hexOption.get() == 1: #hex was selected
+            address= int(self.addressBox.get(),0)
+        else:
+            address = int(self.addressBox.get())
         fp = open(self.filename,'rb')
+        print('TOTAL NUMBER OF BYTES IS ',os.path.getsize(self.filename))
         while True:
-            data = fp.read(5242880) #read 5 MB
+            data = fp.read(MAX_BUFFER_SIZE) #read 5 MB
             if not data:
                 break
             with open('data.bin','wb') as temp: #write 5MB to proxy file
                 temp.write(data)
             if sys.platform == 'win32':
-                args = WindowsPathToXdma + 'h2c_1 '  + 'write ' + str(address) + ' -f ' + 'data.bin' #create the args to pass to xdma
+                args = WindowsPathToXdma + 'h2c_1 '  + 'write ' + str(address) + ' -f ' + 'data.bin ' + '-b' #create the args to pass to xdma
                 address = address + len(data)#update the address
                 p1 =subprocess.Popen(args)#call the xdma driver
                 p1.wait()
@@ -117,7 +122,36 @@ class GUI():
         os.remove('data.bin')#clean up proxy file
 
     def xdma_transfer_from_card(self):
-        address = int(self.addressBox.get())
+        if self.hexOption.get() == 1: #hex was selected
+            address= int(self.addressBox.get(),0)
+        else:
+            address = int(self.addressBox.get())
+        transfers_to_complete =   int(self.lengthBox.get())/MAX_BUFFER_SIZE #get the number of 5MB transfers we have to do
+        remainder =  MAX_BUFFER_SIZE %  int(self.lengthBox.get()) #get the number of remainder we have to get
+        transfers_to_complete = int(transfers_to_complete)
+
+        if transfers_to_complete == 0: #if we only have small file to do in 1 pass
+            args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(self.lengthBox.get())  +' -f ' + self.destinationFile.get() + ' -b'
+            p1 = subprocess.Popen(args)
+        else:
+            for i in range(0,transfers_to_complete): #create as many transfers as needed
+                with open(self.destinationFile.get(),'ab') as fp:
+                    if sys.platform =='win32':
+                        args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(MAX_BUFFER_SIZE)  +' -f ' + 'output.bin ' + '-b' #read 5MB
+                        address = address + MAX_BUFFER_SIZE
+                        p1 = subprocess.Popen(args)
+                        p1.wait()
+                        with open('output.bin','rb') as temp:
+                            fp.write(temp.read(MAX_BUFFER_SIZE))
+
+            if remainder != 0: #if we have a remainder to do
+                args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(remainder)  +' -f ' + 'output.bin ' + '-b' #read reamaining bytes
+                with open(self.destinationFile.get(),'ab') as fp:
+                    with open('output.bin','rb') as temp:
+                        fp.write(temp.read(remainder))
+
+        print('done')
+        os.remove('output.bin')#clean up proxy file
 
         
             
