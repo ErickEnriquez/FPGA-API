@@ -13,3 +13,4 @@ parser.dSYM
 #ignore the testing files
 dummy.txt
 test2.txt
+__pycache__
