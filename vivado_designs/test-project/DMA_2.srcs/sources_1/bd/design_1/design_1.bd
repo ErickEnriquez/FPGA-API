@@ -14,7 +14,8 @@
       "util_ds_buf": "",
       "axi_smc": "",
       "rst_ddr4_0_300M": "",
-      "axi_uart16550_0": ""
+      "axi_uart16550_0": "",
+      "axi_uart_buffer_0": ""
     },
     "interface_ports": {
       "pci_express_x8": {
@@ -392,43 +393,23 @@
             "value": "true"
           }
         }
+      },
+      "axi_uart_buffer_0": {
+        "vlnv": "user.org:user:axi_uart_buffer:1.0",
+        "xci_name": "design_1_axi_uart_buffer_0_0"
       }
     },
     "interface_nets": {
-      "axi_uart16550_0_UART": {
-        "interface_ports": [
-          "rs232_uart",
-          "axi_uart16550_0/UART"
-        ]
-      },
-      "axi_smc_M01_AXI": {
-        "interface_ports": [
-          "axi_smc/M01_AXI",
-          "axi_uart16550_0/S_AXI"
-        ]
-      },
       "pcie_refclk_1": {
         "interface_ports": [
           "pcie_refclk",
           "util_ds_buf/CLK_IN_D"
         ]
       },
-      "xdma_0_pcie_mgt": {
+      "axi_uart16550_0_UART": {
         "interface_ports": [
-          "pci_express_x8",
-          "xdma_0/pcie_mgt"
-        ]
-      },
-      "ddr4_0_C0_DDR4": {
-        "interface_ports": [
-          "ddr4_sdram",
-          "ddr4_0/C0_DDR4"
-        ]
-      },
-      "xdma_0_M_AXI_LITE": {
-        "interface_ports": [
-          "xdma_0/M_AXI_LITE",
-          "axi_smc/S01_AXI"
+          "rs232_uart",
+          "axi_uart16550_0/UART"
         ]
       },
       "axi_smc_M00_AXI": {
@@ -437,16 +418,40 @@
           "ddr4_0/C0_DDR4_S_AXI"
         ]
       },
-      "xdma_0_M_AXI": {
+      "xdma_0_M_AXI_LITE": {
         "interface_ports": [
-          "xdma_0/M_AXI",
-          "axi_smc/S00_AXI"
+          "xdma_0/M_AXI_LITE",
+          "axi_smc/S01_AXI"
         ]
       },
       "default_sysclk_300_1": {
         "interface_ports": [
           "default_sysclk_300",
           "ddr4_0/C0_SYS_CLK"
+        ]
+      },
+      "ddr4_0_C0_DDR4": {
+        "interface_ports": [
+          "ddr4_sdram",
+          "ddr4_0/C0_DDR4"
+        ]
+      },
+      "xdma_0_M_AXI": {
+        "interface_ports": [
+          "xdma_0/M_AXI",
+          "axi_smc/S00_AXI"
+        ]
+      },
+      "xdma_0_pcie_mgt": {
+        "interface_ports": [
+          "pci_express_x8",
+          "xdma_0/pcie_mgt"
+        ]
+      },
+      "axi_smc_M01_AXI": {
+        "interface_ports": [
+          "axi_uart16550_0/S_AXI",
+          "axi_smc/M01_AXI"
         ]
       }
     },
@@ -508,6 +513,66 @@
         "ports": [
           "reset",
           "ddr4_0/sys_rst"
+        ]
+      },
+      "axi_smc_M01_AXI_awvalid": {
+        "ports": [
+          "axi_smc/M01_AXI_awvalid",
+          "axi_uart_buffer_0/m_axi_awvalid"
+        ]
+      },
+      "axi_uart16550_0_s_axi_rvalid": {
+        "ports": [
+          "axi_uart16550_0/s_axi_rvalid",
+          "axi_uart_buffer_0/s_axi_rvalid"
+        ]
+      },
+      "axi_uart_buffer_0_s_axi_awvalid": {
+        "ports": [
+          "axi_uart_buffer_0/s_axi_awvalid",
+          "axi_uart16550_0/s_axi_awvalid"
+        ]
+      },
+      "axi_uart_buffer_0_s_axi_arvalid": {
+        "ports": [
+          "axi_uart_buffer_0/s_axi_arvalid",
+          "axi_uart16550_0/s_axi_arvalid"
+        ]
+      },
+      "axi_uart_buffer_0_s_axi_wvalid": {
+        "ports": [
+          "axi_uart_buffer_0/s_axi_wvalid",
+          "axi_uart16550_0/s_axi_wvalid"
+        ]
+      },
+      "axi_smc_M01_AXI_wvalid": {
+        "ports": [
+          "axi_smc/M01_AXI_wvalid",
+          "axi_uart_buffer_0/m_axi_wvalid"
+        ]
+      },
+      "axi_uart16550_0_ip2intc_irpt": {
+        "ports": [
+          "axi_uart16550_0/ip2intc_irpt",
+          "axi_uart_buffer_0/uart_ip2intc_irpt"
+        ]
+      },
+      "axi_smc_M01_AXI_araddr": {
+        "ports": [
+          "axi_smc/M01_AXI_araddr",
+          "axi_uart16550_0/s_axi_araddr"
+        ]
+      },
+      "axi_smc_M01_AXI_arvalid": {
+        "ports": [
+          "axi_smc/M01_AXI_arvalid",
+          "axi_uart_buffer_0/m_axi_arvalid"
+        ]
+      },
+      "axi_uart_buffer_0_m_axi_rvalid": {
+        "ports": [
+          "axi_uart_buffer_0/m_axi_rvalid",
+          "axi_smc/M01_AXI_rvalid"
         ]
       }
     },

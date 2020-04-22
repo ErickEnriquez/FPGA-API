@@ -10,7 +10,7 @@
 
 source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/luke/capstone/FPGA_API/vivado_designs/packaged_ip'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2019.2/data/ip'.
 Command: synth_design -top design_1_wrapper -part xcku040-ffva1156-2-e
 Starting synth_design
@@ -18,33 +18,35 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xcku040'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku040'
 INFO: [Device 21-403] Loading part xcku040-ffva1156-2-e
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13638 
+INFO: Helper process launched with PID 31902 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2278.145 ; gain = 197.715 ; free physical = 5649 ; free virtual = 11613
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2278.156 ; gain = 198.684 ; free physical = 4904 ; free virtual = 10327
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (1#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_axi_smc_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 198 connections declared, but only 167 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:227]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_axi_uart16550_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (2#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_axi_uart16550_0_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'axi_uart16550_0' of module 'design_1_axi_uart16550_0_0' has 35 connections declared, but only 26 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:395]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ddr4_0_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_ddr4_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ddr4_0_0' (3#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_ddr4_0_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'ddr4_0' of module 'design_1_ddr4_0_0' has 61 connections declared, but only 55 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:422]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ddr4_0_300M_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_rst_ddr4_0_300M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ddr4_0_300M_0' (4#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_rst_ddr4_0_300M_0_stub.v:6]
-WARNING: [Synth 8-7023] instance 'rst_ddr4_0_300M' of module 'design_1_rst_ddr4_0_300M_0' has 10 connections declared, but only 6 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:478]
-INFO: [Synth 8-6157] synthesizing module 'design_1_util_ds_buf_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_util_ds_buf_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_util_ds_buf_0' (5#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_util_ds_buf_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xdma_0_1' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_xdma_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xdma_0_1' (6#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-13560-luke-desktop/realtime/design_1_xdma_0_1_stub.v:6]
-WARNING: [Synth 8-7023] instance 'xdma_0' of module 'design_1_xdma_0_1' has 79 connections declared, but only 70 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:490]
-INFO: [Synth 8-6155] done synthesizing module 'design_1' (7#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (8#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_smc_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_smc_0' (1#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_smc_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'design_1_axi_smc_0' has 198 connections declared, but only 167 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:232]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart16550_0_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart16550_0_0' (2#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_uart16550_0_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'axi_uart16550_0' of module 'design_1_axi_uart16550_0_0' has 35 connections declared, but only 27 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:400]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uart_buffer_0_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_uart_buffer_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uart_buffer_0_0' (3#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_axi_uart_buffer_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ddr4_0_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_ddr4_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ddr4_0_0' (4#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_ddr4_0_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'ddr4_0' of module 'design_1_ddr4_0_0' has 61 connections declared, but only 55 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:438]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ddr4_0_300M_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_rst_ddr4_0_300M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ddr4_0_300M_0' (5#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_rst_ddr4_0_300M_0_stub.v:6]
+WARNING: [Synth 8-7023] instance 'rst_ddr4_0_300M' of module 'design_1_rst_ddr4_0_300M_0' has 10 connections declared, but only 6 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:494]
+INFO: [Synth 8-6157] synthesizing module 'design_1_util_ds_buf_0' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_util_ds_buf_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_util_ds_buf_0' (6#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_util_ds_buf_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xdma_0_1' [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_xdma_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xdma_0_1' (7#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/.Xil/Vivado-31825-luke-desktop/realtime/design_1_xdma_0_1_stub.v:6]
+WARNING: [Synth 8-7023] instance 'xdma_0' of module 'design_1_xdma_0_1' has 79 connections declared, but only 70 given [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:506]
+INFO: [Synth 8-6155] done synthesizing module 'design_1' (8#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/synth/design_1.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (9#1) [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2344.863 ; gain = 264.434 ; free physical = 5703 ; free virtual = 11667
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2344.875 ; gain = 265.402 ; free physical = 4938 ; free virtual = 10361
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -57,12 +59,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2344.863 ; gain = 264.434 ; free physical = 5698 ; free virtual = 11662
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2344.875 ; gain = 265.402 ; free physical = 4933 ; free virtual = 10356
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2344.863 ; gain = 264.434 ; free physical = 5698 ; free virtual = 11662
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2344.875 ; gain = 265.402 ; free physical = 4933 ; free virtual = 10356
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2344.863 ; gain = 0.000 ; free physical = 5691 ; free virtual = 11655
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2344.875 ; gain = 0.000 ; free physical = 4926 ; free virtual = 10349
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -79,6 +81,8 @@ Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2
 Finished Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_rst_ddr4_0_300M_0/design_1_rst_ddr4_0_300M_0/design_1_rst_ddr4_0_300M_0_in_context.xdc] for cell 'design_1_i/rst_ddr4_0_300M'
 Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0_in_context.xdc] for cell 'design_1_i/axi_uart16550_0'
 Finished Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0/design_1_axi_uart16550_0_0_in_context.xdc] for cell 'design_1_i/axi_uart16550_0'
+Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart_buffer_0_0/design_1_axi_uart_buffer_0_0/design_1_axi_uart_buffer_0_0_in_context.xdc] for cell 'design_1_i/axi_uart_buffer_0'
+Finished Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/ip/design_1_axi_uart_buffer_0_0/design_1_axi_uart_buffer_0_0/design_1_axi_uart_buffer_0_0_in_context.xdc] for cell 'design_1_i/axi_uart_buffer_0'
 Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc]
 WARNING: [Vivado 12-584] No ports matched 'reset_rtl[0]'. [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc:1]
 Finished Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/constrs_1/new/new_contraints.xdc]
@@ -89,13 +93,13 @@ Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2
 Finished Parsing XDC File [/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2436.645 ; gain = 0.000 ; free physical = 5636 ; free virtual = 11600
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2438.625 ; gain = 0.000 ; free physical = 4874 ; free virtual = 10298
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2436.645 ; gain = 0.000 ; free physical = 5636 ; free virtual = 11600
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2438.625 ; gain = 0.000 ; free physical = 4874 ; free virtual = 10298
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 2436.645 ; gain = 356.215 ; free physical = 5687 ; free virtual = 11651
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2438.625 ; gain = 359.152 ; free physical = 4977 ; free virtual = 10402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -103,7 +107,7 @@ Start Loading Part and Timing Information
 Loading part: xcku040-ffva1156-2-e
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 2436.645 ; gain = 356.215 ; free physical = 5687 ; free virtual = 11651
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2438.625 ; gain = 359.152 ; free physical = 4977 ; free virtual = 10402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -417,11 +421,12 @@ Applied set_property DONT_TOUCH = true for design_1_i/util_ds_buf. (constraint f
 Applied set_property DONT_TOUCH = true for design_1_i/axi_smc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/rst_ddr4_0_300M. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/axi_uart16550_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/axi_uart_buffer_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2436.645 ; gain = 356.215 ; free physical = 5687 ; free virtual = 11652
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2438.625 ; gain = 359.152 ; free physical = 4977 ; free virtual = 10401
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2436.645 ; gain = 356.215 ; free physical = 5689 ; free virtual = 11654
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2438.625 ; gain = 359.152 ; free physical = 4978 ; free virtual = 10403
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -457,7 +462,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2436.645 ; gain = 356.215 ; free physical = 5673 ; free virtual = 11641
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2438.625 ; gain = 359.152 ; free physical = 4956 ; free virtual = 10384
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -469,13 +474,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 2527.895 ; gain = 447.465 ; free physical = 5397 ; free virtual = 11406
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 2527.906 ; gain = 448.434 ; free physical = 4723 ; free virtual = 10151
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 2527.895 ; gain = 447.465 ; free physical = 5397 ; free virtual = 11405
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 2528.906 ; gain = 449.434 ; free physical = 4723 ; free virtual = 10151
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -487,7 +492,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:35 . Memory (MB): peak = 2539.910 ; gain = 459.480 ; free physical = 5395 ; free virtual = 11404
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 2539.922 ; gain = 460.449 ; free physical = 4721 ; free virtual = 10149
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -511,13 +516,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10149
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -536,87 +541,89 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+---------------------------+----------+
-|      |BlackBox name              |Instances |
-+------+---------------------------+----------+
-|1     |design_1_axi_smc_0         |         1|
-|2     |design_1_axi_uart16550_0_0 |         1|
-|3     |design_1_ddr4_0_0          |         1|
-|4     |design_1_rst_ddr4_0_300M_0 |         1|
-|5     |design_1_util_ds_buf_0     |         1|
-|6     |design_1_xdma_0_1          |         1|
-+------+---------------------------+----------+
++------+-----------------------------+----------+
+|      |BlackBox name                |Instances |
++------+-----------------------------+----------+
+|1     |design_1_axi_smc_0           |         1|
+|2     |design_1_axi_uart16550_0_0   |         1|
+|3     |design_1_axi_uart_buffer_0_0 |         1|
+|4     |design_1_ddr4_0_0            |         1|
+|5     |design_1_rst_ddr4_0_300M_0   |         1|
+|6     |design_1_util_ds_buf_0       |         1|
+|7     |design_1_xdma_0_1            |         1|
++------+-----------------------------+----------+
 
 Report Cell Usage: 
-+------+---------------------------+------+
-|      |Cell                       |Count |
-+------+---------------------------+------+
-|1     |design_1_axi_smc_0         |     1|
-|2     |design_1_axi_uart16550_0_0 |     1|
-|3     |design_1_ddr4_0_0          |     1|
-|4     |design_1_rst_ddr4_0_300M_0 |     1|
-|5     |design_1_util_ds_buf_0     |     1|
-|6     |design_1_xdma_0_1          |     1|
-|7     |IBUF                       |     3|
-|8     |OBUF                       |     1|
-+------+---------------------------+------+
++------+-----------------------------+------+
+|      |Cell                         |Count |
++------+-----------------------------+------+
+|1     |design_1_axi_smc_0           |     1|
+|2     |design_1_axi_uart16550_0_0   |     1|
+|3     |design_1_axi_uart_buffer_0_0 |     1|
+|4     |design_1_ddr4_0_0            |     1|
+|5     |design_1_rst_ddr4_0_300M_0   |     1|
+|6     |design_1_util_ds_buf_0       |     1|
+|7     |design_1_xdma_0_1            |     1|
+|8     |IBUF                         |     3|
+|9     |OBUF                         |     1|
++------+-----------------------------+------+
 
 Report Instance Areas: 
 +------+-------------+---------+------+
 |      |Instance     |Module   |Cells |
 +------+-------------+---------+------+
-|1     |top          |         |  3009|
-|2     |  design_1_i |design_1 |  3005|
+|1     |top          |         |  3013|
+|2     |  design_1_i |design_1 |  3009|
 +------+-------------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.785 ; gain = 472.355 ; free physical = 5394 ; free virtual = 11403
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.797 ; gain = 474.324 ; free physical = 4721 ; free virtual = 10150
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:37 . Memory (MB): peak = 2552.785 ; gain = 380.574 ; free physical = 5417 ; free virtual = 11426
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:38 . Memory (MB): peak = 2552.793 ; gain = 472.355 ; free physical = 5417 ; free virtual = 11426
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:38 . Memory (MB): peak = 2553.797 ; gain = 380.574 ; free physical = 4742 ; free virtual = 10170
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2553.805 ; gain = 474.324 ; free physical = 4742 ; free virtual = 10170
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2564.691 ; gain = 0.000 ; free physical = 5487 ; free virtual = 11496
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2565.703 ; gain = 0.000 ; free physical = 4813 ; free virtual = 10241
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2579.566 ; gain = 0.000 ; free physical = 5445 ; free virtual = 11454
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2578.578 ; gain = 0.000 ; free physical = 4771 ; free virtual = 10199
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 3 instances were transformed.
   IBUF => IBUF (IBUFCTRL, INBUF): 3 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-32 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+34 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:50 . Memory (MB): peak = 2579.566 ; gain = 1008.566 ; free physical = 5568 ; free virtual = 11577
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2579.566 ; gain = 0.000 ; free physical = 5568 ; free virtual = 11577
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:52 . Memory (MB): peak = 2578.578 ; gain = 1007.582 ; free physical = 4894 ; free virtual = 10323
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2578.578 ; gain = 0.000 ; free physical = 4894 ; free virtual = 10323
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 13 21:41:02 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 21 17:35:31 2020...

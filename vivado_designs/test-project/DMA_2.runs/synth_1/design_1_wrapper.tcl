@@ -17,6 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL-1065} -limit 10000
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 create_project -in_memory -part xcku040-ffva1156-2-e
@@ -31,6 +33,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:kcu105:part0:1.6 [current_project]
+set_property ip_repo_paths /home/luke/capstone/FPGA_API/vivado_designs/packaged_ip [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v

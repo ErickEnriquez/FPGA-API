@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {HDL-1065} -limit 10000
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 
@@ -67,6 +68,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 3
   create_project -in_memory -part xcku040-ffva1156-2-e
   set_property board_part xilinx.com:kcu105:part0:1.6 [current_project]
@@ -74,6 +76,8 @@ set rc [catch {
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/wt [current_project]
   set_property parent.project_path /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.xpr [current_project]
+  set_property ip_repo_paths /home/luke/capstone/FPGA_API/vivado_designs/packaged_ip [current_project]
+  update_ip_catalog
   set_property ip_output_repo /home/luke/capstone/FPGA_API/vivado_designs/test-project/DMA_2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]

@@ -198,6 +198,9 @@ proc create_root_design { parentCell } {
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uart16550_0
 
+  # Create instance: axi_uart_buffer_0, and set properties
+  set axi_uart_buffer_0 [ create_bd_cell -type ip -vlnv user.org:user:axi_uart_buffer:1.0 axi_uart_buffer_0 ]
+
   # Create instance: ddr4_0, and set properties
   set ddr4_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ddr4:2.2 ddr4_0 ]
   set_property -dict [ list \
@@ -244,6 +247,16 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net xdma_0_pcie_mgt [get_bd_intf_ports pci_express_x8] [get_bd_intf_pins xdma_0/pcie_mgt]
 
   # Create port connections
+  connect_bd_net -net axi_smc_M01_AXI_araddr [get_bd_pins axi_smc/M01_AXI_araddr] [get_bd_pins axi_uart16550_0/s_axi_araddr]
+  connect_bd_net -net axi_smc_M01_AXI_arvalid [get_bd_pins axi_smc/M01_AXI_arvalid] [get_bd_pins axi_uart_buffer_0/m_axi_arvalid]
+  connect_bd_net -net axi_smc_M01_AXI_awvalid [get_bd_pins axi_smc/M01_AXI_awvalid] [get_bd_pins axi_uart_buffer_0/m_axi_awvalid]
+  connect_bd_net -net axi_smc_M01_AXI_wvalid [get_bd_pins axi_smc/M01_AXI_wvalid] [get_bd_pins axi_uart_buffer_0/m_axi_wvalid]
+  connect_bd_net -net axi_uart16550_0_ip2intc_irpt [get_bd_pins axi_uart16550_0/ip2intc_irpt] [get_bd_pins axi_uart_buffer_0/uart_ip2intc_irpt]
+  connect_bd_net -net axi_uart16550_0_s_axi_rvalid [get_bd_pins axi_uart16550_0/s_axi_rvalid] [get_bd_pins axi_uart_buffer_0/s_axi_rvalid]
+  connect_bd_net -net axi_uart_buffer_0_m_axi_rvalid [get_bd_pins axi_smc/M01_AXI_rvalid] [get_bd_pins axi_uart_buffer_0/m_axi_rvalid]
+  connect_bd_net -net axi_uart_buffer_0_s_axi_arvalid [get_bd_pins axi_uart16550_0/s_axi_arvalid] [get_bd_pins axi_uart_buffer_0/s_axi_arvalid]
+  connect_bd_net -net axi_uart_buffer_0_s_axi_awvalid [get_bd_pins axi_uart16550_0/s_axi_awvalid] [get_bd_pins axi_uart_buffer_0/s_axi_awvalid]
+  connect_bd_net -net axi_uart_buffer_0_s_axi_wvalid [get_bd_pins axi_uart16550_0/s_axi_wvalid] [get_bd_pins axi_uart_buffer_0/s_axi_wvalid]
   connect_bd_net -net ddr4_0_c0_ddr4_ui_clk [get_bd_pins axi_smc/aclk] [get_bd_pins axi_smc/aclk2] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins ddr4_0/c0_ddr4_ui_clk] [get_bd_pins rst_ddr4_0_300M/slowest_sync_clk]
   connect_bd_net -net ddr4_0_c0_ddr4_ui_clk_sync_rst [get_bd_pins ddr4_0/c0_ddr4_ui_clk_sync_rst] [get_bd_pins rst_ddr4_0_300M/ext_reset_in]
   connect_bd_net -net pcie_perstn_1 [get_bd_ports pcie_perstn] [get_bd_pins xdma_0/sys_rst_n]

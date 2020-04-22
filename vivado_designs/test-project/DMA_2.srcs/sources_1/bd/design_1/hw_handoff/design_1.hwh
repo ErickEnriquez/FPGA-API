@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Feb 13 21:34:53 2020" VIVADOVERSION="2019.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Apr 21 17:33:11 2020" VIVADOVERSION="2019.2">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.6" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -12,6 +12,86 @@
     <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="External_Ports_reset">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="sys_rst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_baudoutn" SIGIS="undef" SIGNAME="axi_uart16550_0_baudoutn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="baudoutn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_ctsn" SIGIS="undef" SIGNAME="axi_uart16550_0_ctsn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="ctsn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_dcdn" SIGIS="undef" SIGNAME="axi_uart16550_0_dcdn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dcdn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_ddis" SIGIS="undef" SIGNAME="axi_uart16550_0_ddis">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="ddis"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_dsrn" SIGIS="undef" SIGNAME="axi_uart16550_0_dsrn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dsrn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_dtrn" SIGIS="undef" SIGNAME="axi_uart16550_0_dtrn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dtrn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_out1n" SIGIS="undef" SIGNAME="axi_uart16550_0_out1n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="out1n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_out2n" SIGIS="undef" SIGNAME="axi_uart16550_0_out2n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="out2n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_ri" SIGIS="undef" SIGNAME="axi_uart16550_0_rin">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rin"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_rtsn" SIGIS="undef" SIGNAME="axi_uart16550_0_rtsn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rtsn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uart16550_0_sin">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="sin"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_rxrdyn" SIGIS="undef" SIGNAME="axi_uart16550_0_rxrdyn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rxrdyn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uart16550_0_sout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="sout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txrdyn" SIGIS="undef" SIGNAME="axi_uart16550_0_txrdyn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uart16550_0" PORT="txrdyn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="pcie_refclk_clk_p" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_DS_P">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="util_ds_buf" PORT="IBUF_DS_P"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="pcie_refclk_clk_n" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_DS_N">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="util_ds_buf" PORT="IBUF_DS_N"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="7" NAME="pci_express_x8_rxn" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxn">
@@ -32,16 +112,6 @@
     <PORT DIR="O" LEFT="7" NAME="pci_express_x8_txp" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txp">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_txp"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="pcie_refclk_clk_p" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_DS_P">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="util_ds_buf" PORT="IBUF_DS_P"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="pcie_refclk_clk_n" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_DS_N">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="util_ds_buf" PORT="IBUF_DS_N"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="ddr4_sdram_act_n" SIGIS="undef" SIGNAME="ddr4_0_c0_ddr4_act_n">
@@ -122,76 +192,6 @@
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="default_sysclk_300_clk_p" SIGIS="clk" SIGNAME="ddr4_0_c0_sys_clk_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ddr4_0" PORT="c0_sys_clk_p"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_baudoutn" SIGIS="undef" SIGNAME="axi_uart16550_0_baudoutn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="baudoutn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="rs232_uart_ctsn" SIGIS="undef" SIGNAME="axi_uart16550_0_ctsn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="ctsn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="rs232_uart_dcdn" SIGIS="undef" SIGNAME="axi_uart16550_0_dcdn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dcdn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_ddis" SIGIS="undef" SIGNAME="axi_uart16550_0_ddis">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="ddis"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="rs232_uart_dsrn" SIGIS="undef" SIGNAME="axi_uart16550_0_dsrn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dsrn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_dtrn" SIGIS="undef" SIGNAME="axi_uart16550_0_dtrn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="dtrn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_out1n" SIGIS="undef" SIGNAME="axi_uart16550_0_out1n">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="out1n"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_out2n" SIGIS="undef" SIGNAME="axi_uart16550_0_out2n">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="out2n"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="rs232_uart_ri" SIGIS="undef" SIGNAME="axi_uart16550_0_rin">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rin"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_rtsn" SIGIS="undef" SIGNAME="axi_uart16550_0_rtsn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rtsn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uart16550_0_sin">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="sin"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_rxrdyn" SIGIS="undef" SIGNAME="axi_uart16550_0_rxrdyn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="rxrdyn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uart16550_0_sout">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="sout"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txrdyn" SIGIS="undef" SIGNAME="axi_uart16550_0_txrdyn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uart16550_0" PORT="txrdyn"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -825,6 +825,9 @@
         <PORT DIR="O" LEFT="2" NAME="M01_AXI_awprot" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_awvalid">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="m_axi_awvalid"/>
+          </CONNECTIONS>
+          <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
@@ -844,6 +847,9 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="m_axi_wvalid"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_wvalid"/>
           </CONNECTIONS>
@@ -872,9 +878,15 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_araddr"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_araddr"/>
+          </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="M01_AXI_arprot" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="m_axi_arvalid"/>
+          </CONNECTIONS>
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_arvalid"/>
           </CONNECTIONS>
@@ -894,9 +906,10 @@
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_rvalid">
+        <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_m_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_rvalid"/>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="m_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_rready">
@@ -1973,16 +1986,21 @@
             <CONNECTION INSTANCE="rst_ddr4_0_300M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
+        <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="axi_uart16550_0_ip2intc_irpt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="uart_ip2intc_irpt"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="freeze" SIGIS="undef"/>
         <PORT DIR="I" LEFT="12" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_awaddr"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_awvalid">
+        <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_awvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_awvalid"/>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="s_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_awready">
@@ -2000,9 +2018,10 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_wvalid">
+        <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_wvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_wvalid"/>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="s_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_wready">
@@ -2029,10 +2048,14 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_araddr"/>
           </CONNECTIONS>
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_araddr"/>
+          </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_arvalid">
+        <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_arvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_arvalid"/>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="s_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_arready">
@@ -2050,9 +2073,10 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_rresp"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_rvalid">
+        <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="axi_uart16550_0_s_axi_rvalid">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_rvalid"/>
+            <CONNECTION INSTANCE="axi_uart_buffer_0" PORT="s_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_rready">
@@ -2203,6 +2227,61 @@
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/axi_uart_buffer_0" HWVERSION="1.0" INSTANCE="axi_uart_buffer_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_uart_buffer" VLNV="user.org:user:axi_uart_buffer:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_axi_uart_buffer_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="m_axi_arvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_awvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axi_rvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_m_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="m_axi_wvalid" SIGIS="undef" SIGNAME="axi_smc_M01_AXI_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_smc" PORT="M01_AXI_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_arvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_arvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_awvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_awvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="axi_uart16550_0_s_axi_rvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_rvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="axi_uart_buffer_0_s_axi_wvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="s_axi_wvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="uart_ip2intc_irpt" SIGIS="undef" SIGNAME="axi_uart16550_0_ip2intc_irpt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uart16550_0" PORT="ip2intc_irpt"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE COREREVISION="8" FULLNAME="/ddr4_0" HWVERSION="2.2" INSTANCE="ddr4_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ddr4" VLNV="xilinx.com:ip:ddr4:2.2">
       <DOCUMENTS>

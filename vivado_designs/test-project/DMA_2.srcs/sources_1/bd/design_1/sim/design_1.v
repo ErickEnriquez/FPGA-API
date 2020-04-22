@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-//Date        : Thu Feb 13 21:34:47 2020
+//Date        : Tue Apr 21 17:33:04 2020
 //Host        : luke-desktop running 64-bit Ubuntu 18.04.2 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=21,da_axi4_s2mm_cnt=1,da_board_cnt=41,da_clkrst_cnt=33,da_xdma_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=1,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=21,da_axi4_s2mm_cnt=1,da_board_cnt=41,da_clkrst_cnt=33,da_xdma_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (ddr4_sdram_act_n,
     ddr4_sdram_adr,
@@ -97,25 +97,30 @@ module design_1
   wire axi_smc_M00_AXI_WREADY;
   wire [63:0]axi_smc_M00_AXI_WSTRB;
   wire axi_smc_M00_AXI_WVALID;
-  wire [12:0]axi_smc_M01_AXI_ARADDR;
   wire axi_smc_M01_AXI_ARREADY;
-  wire axi_smc_M01_AXI_ARVALID;
   wire [12:0]axi_smc_M01_AXI_AWADDR;
   wire axi_smc_M01_AXI_AWREADY;
-  wire axi_smc_M01_AXI_AWVALID;
   wire axi_smc_M01_AXI_BREADY;
   wire [1:0]axi_smc_M01_AXI_BRESP;
   wire axi_smc_M01_AXI_BVALID;
   wire [31:0]axi_smc_M01_AXI_RDATA;
   wire axi_smc_M01_AXI_RREADY;
   wire [1:0]axi_smc_M01_AXI_RRESP;
-  wire axi_smc_M01_AXI_RVALID;
   wire [31:0]axi_smc_M01_AXI_WDATA;
   wire axi_smc_M01_AXI_WREADY;
   wire [3:0]axi_smc_M01_AXI_WSTRB;
-  wire axi_smc_M01_AXI_WVALID;
+  wire [12:0]axi_smc_M01_AXI_araddr;
+  wire axi_smc_M01_AXI_arvalid;
+  wire axi_smc_M01_AXI_awvalid;
+  wire axi_smc_M01_AXI_wvalid;
   wire axi_uart16550_0_UART_RxD;
   wire axi_uart16550_0_UART_TxD;
+  wire axi_uart16550_0_ip2intc_irpt;
+  wire axi_uart16550_0_s_axi_rvalid;
+  wire axi_uart_buffer_0_m_axi_rvalid;
+  wire axi_uart_buffer_0_s_axi_arvalid;
+  wire axi_uart_buffer_0_s_axi_awvalid;
+  wire axi_uart_buffer_0_s_axi_wvalid;
   wire ddr4_0_C0_DDR4_ACT_N;
   wire [16:0]ddr4_0_C0_DDR4_ADR;
   wire [1:0]ddr4_0_C0_DDR4_BA;
@@ -258,23 +263,23 @@ module design_1
         .M00_AXI_wready(axi_smc_M00_AXI_WREADY),
         .M00_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_smc_M00_AXI_WVALID),
-        .M01_AXI_araddr(axi_smc_M01_AXI_ARADDR),
+        .M01_AXI_araddr(axi_smc_M01_AXI_araddr),
         .M01_AXI_arready(axi_smc_M01_AXI_ARREADY),
-        .M01_AXI_arvalid(axi_smc_M01_AXI_ARVALID),
+        .M01_AXI_arvalid(axi_smc_M01_AXI_arvalid),
         .M01_AXI_awaddr(axi_smc_M01_AXI_AWADDR),
         .M01_AXI_awready(axi_smc_M01_AXI_AWREADY),
-        .M01_AXI_awvalid(axi_smc_M01_AXI_AWVALID),
+        .M01_AXI_awvalid(axi_smc_M01_AXI_awvalid),
         .M01_AXI_bready(axi_smc_M01_AXI_BREADY),
         .M01_AXI_bresp(axi_smc_M01_AXI_BRESP),
         .M01_AXI_bvalid(axi_smc_M01_AXI_BVALID),
         .M01_AXI_rdata(axi_smc_M01_AXI_RDATA),
         .M01_AXI_rready(axi_smc_M01_AXI_RREADY),
         .M01_AXI_rresp(axi_smc_M01_AXI_RRESP),
-        .M01_AXI_rvalid(axi_smc_M01_AXI_RVALID),
+        .M01_AXI_rvalid(axi_uart_buffer_0_m_axi_rvalid),
         .M01_AXI_wdata(axi_smc_M01_AXI_WDATA),
         .M01_AXI_wready(axi_smc_M01_AXI_WREADY),
         .M01_AXI_wstrb(axi_smc_M01_AXI_WSTRB),
-        .M01_AXI_wvalid(axi_smc_M01_AXI_WVALID),
+        .M01_AXI_wvalid(axi_smc_M01_AXI_wvalid),
         .M02_AXI_arready(1'b0),
         .M02_AXI_awready(1'b0),
         .M02_AXI_bresp({1'b0,1'b0}),
@@ -397,28 +402,39 @@ module design_1
         .dcdn(1'b1),
         .dsrn(1'b1),
         .freeze(1'b0),
+        .ip2intc_irpt(axi_uart16550_0_ip2intc_irpt),
         .rin(1'b1),
         .s_axi_aclk(ddr4_0_c0_ddr4_ui_clk),
-        .s_axi_araddr(axi_smc_M01_AXI_ARADDR),
+        .s_axi_araddr(axi_smc_M01_AXI_araddr),
         .s_axi_aresetn(rst_ddr4_0_300M_peripheral_aresetn),
         .s_axi_arready(axi_smc_M01_AXI_ARREADY),
-        .s_axi_arvalid(axi_smc_M01_AXI_ARVALID),
+        .s_axi_arvalid(axi_uart_buffer_0_s_axi_arvalid),
         .s_axi_awaddr(axi_smc_M01_AXI_AWADDR),
         .s_axi_awready(axi_smc_M01_AXI_AWREADY),
-        .s_axi_awvalid(axi_smc_M01_AXI_AWVALID),
+        .s_axi_awvalid(axi_uart_buffer_0_s_axi_awvalid),
         .s_axi_bready(axi_smc_M01_AXI_BREADY),
         .s_axi_bresp(axi_smc_M01_AXI_BRESP),
         .s_axi_bvalid(axi_smc_M01_AXI_BVALID),
         .s_axi_rdata(axi_smc_M01_AXI_RDATA),
         .s_axi_rready(axi_smc_M01_AXI_RREADY),
         .s_axi_rresp(axi_smc_M01_AXI_RRESP),
-        .s_axi_rvalid(axi_smc_M01_AXI_RVALID),
+        .s_axi_rvalid(axi_uart16550_0_s_axi_rvalid),
         .s_axi_wdata(axi_smc_M01_AXI_WDATA),
         .s_axi_wready(axi_smc_M01_AXI_WREADY),
         .s_axi_wstrb(axi_smc_M01_AXI_WSTRB),
-        .s_axi_wvalid(axi_smc_M01_AXI_WVALID),
+        .s_axi_wvalid(axi_uart_buffer_0_s_axi_wvalid),
         .sin(axi_uart16550_0_UART_RxD),
         .sout(axi_uart16550_0_UART_TxD));
+  design_1_axi_uart_buffer_0_0 axi_uart_buffer_0
+       (.m_axi_arvalid(axi_smc_M01_AXI_arvalid),
+        .m_axi_awvalid(axi_smc_M01_AXI_awvalid),
+        .m_axi_rvalid(axi_uart_buffer_0_m_axi_rvalid),
+        .m_axi_wvalid(axi_smc_M01_AXI_wvalid),
+        .s_axi_arvalid(axi_uart_buffer_0_s_axi_arvalid),
+        .s_axi_awvalid(axi_uart_buffer_0_s_axi_awvalid),
+        .s_axi_rvalid(axi_uart16550_0_s_axi_rvalid),
+        .s_axi_wvalid(axi_uart_buffer_0_s_axi_wvalid),
+        .uart_ip2intc_irpt(axi_uart16550_0_ip2intc_irpt));
   design_1_ddr4_0_0 ddr4_0
        (.c0_ddr4_act_n(ddr4_0_C0_DDR4_ACT_N),
         .c0_ddr4_adr(ddr4_0_C0_DDR4_ADR),

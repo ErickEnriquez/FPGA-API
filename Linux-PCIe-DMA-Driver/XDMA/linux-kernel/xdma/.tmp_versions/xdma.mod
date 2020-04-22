@@ -1,3 +1,0 @@
-/home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/xdma.ko
-/home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/libxdma.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/xdma_cdev.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/cdev_ctrl.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/cdev_events.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/cdev_sgdma.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/cdev_xvc.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/cdev_bypass.o /home/luke/Documents/dma_ip_drivers-master/XDMA/linux-kernel/xdma/xdma_mod.o
-
