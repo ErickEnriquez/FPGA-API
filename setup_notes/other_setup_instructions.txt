@@ -1,0 +1,14 @@
+-The Xilinx DMA kernel driver is very finicky and will only work with very
+specific kernel versions.
+	-Versions past 4.18.0-15.16 seem to run into errors with functions 
+	being removed from the kernel lexicon and numbers of params.
+	-kernel Version 4.15.0-91-generic works right out of the box
+
+-If using this verion of the kernel is not possible, you can go all the way
+up to kernel version 5.0.0-29 with the following:
+https://forums.xilinx.com/t5/PCIe-and-CPM/PCIe-DMA-driver-compilation-issues-in-Linux-Ubuntu-19-04/td-p/1022239
+
+Versions past 5.3.0-42-generic give errors about functions missing such as
+mmiowb, which stop the compilation of the kernel driver.
+
+

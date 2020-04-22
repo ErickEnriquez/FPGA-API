@@ -1,0 +1,32 @@
+Usage_Info.txt
+
+== Important Notes ==
+
+
+== UART Section ==
+	Before sending data over UART, the UART must be configured for the type of data transfer that is requested.
+
+	This is achieved by writing values to special status registers in the UART through the AXI interface.  These registers are stored as offsets from the main AXI "mount point" in the design.
+
+	As the AXI master in our system is the PCIe DMA module, this is acomplished by using a DMA transfer of a binary file that contains all the appropriate values to the root UART address first to configure the IP, followed by a second transfer of the actual data.
+
+	A Summary of the register table from the Xilinx UART 16550 module is included below for quick reference
+		-All AXI UART registers are 32-bits
+
+	Necessary value of bit 7 in the LCR reg
+
+	LCR[7]	Address Offset 	Register Long Name 					Register Acronym 	Access Type
+
+	0		0x1000			Receiver Buffer Register 			RBR 				RO
+	0		0x1000 			Transmitter Holding Register 		THR 				WO
+	0		0x1004 			Interrupt Enable Register 			IER 				R/W
+	X 		0x1008 			Interrupt Identification Register 	IIR 				RO
+	X 		0x1008			FIFO Control Register 				FCR 				WO
+	1 		0x1008 			FIFO Control Register 				FCR 				RO
+	X 		0x100C 			Line Control Register 				LCR 				R/W
+	X 		0x1010 			Modem Control Register 				MCR 				R/W
+	X 		0x1014 			Line Status Register 				LSR 				R/W
+	X 		0x1018 			Modem Status Register 				MSR 				R/W
+	X 		0x101C 			Scratch Register 					SCR 				R/W
+	1 		0x1000			Divisor Latch (Least-sig byte)	 	DLL					R/W
+	1		0x1004			Divisor Latch (Most-sig byte) 		DLM 				R/W

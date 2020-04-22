@@ -1,0 +1,8 @@
+make
+gcc
+linux-generic
+libelf-dev
+flex
+bison
+libaio1
+libaio-dev

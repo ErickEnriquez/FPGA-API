@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2 (64-bit)
+# SW Build 2700185 on Thu Oct 24 18:45:48 MDT 2019
+# IP Build 2699827 on Thu Oct 24 21:16:38 MDT 2019
+# Start of session at: Mon Jan  6 18:13:53 2020
+# Process ID: 30108
+# Current directory: /home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/luke/Documents/Capstone/FPGA_API/vivado_designs/DMA_2/DMA_2.sim/sim_1/behav/xsim/xsim.dir/design_1_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace

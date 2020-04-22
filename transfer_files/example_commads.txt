@@ -1,0 +1,30 @@
+# DDR4 Memory Offset (on card) = 0x80000000 - ffffffff (2147483648 - 4294967295) (2G)
+# AXI uartLite offset = 0x40600000 - 4060ffff (1080033280 - 1080098815) (64k)
+
+# bash can convert hex to dec inline with $((16#<hex_number_to_trans))
+
+General structure of DMA commands:
+
+dma_to_device -d /dev/xdma0_h2c_${curChannel} -f data/datafile${i}_4K.bin -s $transferSize -a $addrOffset -c $transferCount &
+
+$tool_path/dma_from_device -d /dev/xdma0_c2h_${curChannel} -f data/output_datafile${i}_4K.bin -s $transferSize -a $addrOffset -c $transferCount &
+
+
+== Usage Notes ==
+
+# Commands must be run as root or with permission to open device /dev/xdma_h2c and /dev/xdma_c2h
+# Make sure to ./load_driver.sh first to load the driver kernel module
+# Make sure to use transfer sizes that are smaller than or as large as the file, otherwise you will get the writes will not go through and the corresponding reads will read garbage.
+
+example commands:
+
+# generate "datafile"
+python3 -c "print('A'*1024, end='')" > test.in
+
+#Send data to card DDR4 via PCIe DMA
+dma_to_device -d /dev/xdma0_h2c_0 -f test.in -s 1024 -a 2147483648 -c 1
+
+#Retrieve the contents of card DDR4 via PCIe DMA
+dma_from_device -d /dev/xdma0_h2c_0 -f test.out -s 1024 -a 2147483648 -c 1
+
+   

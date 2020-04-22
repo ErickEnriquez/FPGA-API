@@ -1,0 +1,5 @@
+*.swp
+**/*.o.cmd
+**/libxdma/*.mk
+**/xdma/*.ur-safe
+**/xdma/*.mk

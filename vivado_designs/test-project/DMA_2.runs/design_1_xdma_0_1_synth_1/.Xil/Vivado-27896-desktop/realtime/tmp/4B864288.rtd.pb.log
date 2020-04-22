@@ -1,0 +1,41 @@
+xilinx rtfpga
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=16 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=16 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_dadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=16 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=16 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_dadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=16 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=16 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST/rrq_dadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_lba_101_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_len_nn1_reg " of size (depth=16 x width=13) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rcp_rcv_amt_101_reg " of size (depth=16 x width=10) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_wfba_nn1_reg " of size (depth=16 x width=5) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-6904] The RAM "\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/rrq_dadr_nn1_reg " of size (depth=16 x width=64) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg_rep[0]' (FDRE) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg[0]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg_rep[1]' (FDRE) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg[1]'
+INFO: [Synth 8-3886] merging instance 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg_rep[2]' (FDRE) to 'gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST/wrq_rid_301_reg[2]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[5] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\gen_rdwr_loop[1].gen_rdwr_eng.RDWR_INST /\rcp_errc_101_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\gen_rdwr_loop[3].gen_rdwr_eng.RDWR_INST /\cfg_mrs_msk_nn1_reg[1] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
