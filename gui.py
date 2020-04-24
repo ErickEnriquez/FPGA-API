@@ -126,7 +126,7 @@ class GUI():
         fp.close()
         temp.close()
         os.remove('data.bin')#clean up proxy file
-        results = 'Bytes written : ' + bytesWritten
+        results = 'Bytes written : ' + str(bytesWritten)
         self.errorMessage.set(results)
     ########################################################################################################################################################################
     def xdma_transfer_from_card(self):
@@ -160,7 +160,7 @@ class GUI():
 
             if remainder != 0: #if we have a remainder to do
                 if sys.platform == 'win32':
-                    args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(remainder)  +' -f ' + 'output.bin ' + '-b' #read reamaining bytes
+                    args = XdmaRead + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(remainder)  +' -f ' + 'output.bin ' + '-b' #read reamaining bytes
                 elif sys.platform == 'linux':
                     args = XdmaRead + ' -a ' + str(address) + ' -s ' + str(remainder) + ' -f '  + 'data.bin'
                 with open(self.destinationFile.get(),'ab') as fp:
