@@ -152,7 +152,10 @@ class GUI():
                         fp.write(temp.read(remainder))
 
         print('done')
-        os.remove('output.bin')#clean up proxy file
+        try:
+            os.remove('output.bin')#clean up proxy file
+        except: 
+            print('no proxy file needed')
 
         
 #setup_uart() #setup the uart
