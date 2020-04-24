@@ -156,10 +156,10 @@ class GUI():
 
         
 #setup_uart() #setup the uart
-this_dir, this_filename = os.path.split(__file__)
+this_dir = os.path.dirname(os.path.abspath(__file__))
 if sys.platform == 'win32':    
-    file_location = os.path.join(this_dir, '/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe ')
+    WindowsPathToXdma = os.path.join(this_dir, 'Xilinx_Answer_65444_Windows_Files', 'x64', 'bin', 'xdma_rw.exe')
 elif sys.platform == 'linux':
-    file_location = os.path.join(this_dir, 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/ ')
-print(file_location) 
+    LinuxPathToXdma = os.path.join(this_dir, 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/ ')
+#print(WindowsPathToXdma) 
 GUI()   #call the gui
