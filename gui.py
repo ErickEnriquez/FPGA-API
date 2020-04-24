@@ -8,9 +8,11 @@ import binascii
 import time
 from setupUART import setup_uart
 
+XdmaWrite = ''
+XdmaRead = ''
 
-WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
-LinuxPathToXdma = 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
+#WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
+#LinuxPathToXdma = 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
 
 MAX_BUFFER_SIZE = 5242880 # 5 MB which is size of Xdma buffer
 
@@ -68,28 +70,28 @@ class GUI():
 
         self.root.mainloop()
 
-
+    ########################################################################################################################################################################
     def open(self):
         result = filedialog.askopenfilename()
         self.filename = result
         self.output.delete(0,END)
         self.output.insert(0,result)
         
-
+    ########################################################################################################################################################################
     #disables the data length box when doing host to card transfers as it is not needed
     def host_to_card(self):
         self.outputfile.config(state='normal')
         self.button1.config(state='normal')
         self.lengthBox.config(state='disabled')
         self.destinationFile.config(state='disabled')
-
+    ########################################################################################################################################################################
     #disables the file and the browse buttons when doing carrd to host transfers to help user
     def card_to_host(self):
         self.destinationFile.config(state='normal')
         self.lengthBox.config(state='normal')
         self.outputfile.config(state='disabled') #disable the filename entry
         self.button1.config(state='disabled')
-
+    ########################################################################################################################################################################
     def parse_input(self):
         if self.transfer_choice.get() == 'h2c' and self.filename != "":
             self.errorMessage.set('') # clear the error message
@@ -100,13 +102,14 @@ class GUI():
         else:
             self.errorMessage.set('Error, please ensure you have filled in all fields')
 
+    ########################################################################################################################################################################
     def xdma_transfer_to_card(self):
         if self.hexOption.get() == 1: #hex was selected
             address= int(self.addressBox.get(),0)
         else:
             address = int(self.addressBox.get())
         fp = open(self.filename,'rb')
-        print('TOTAL NUMBER OF BYTES IS ',os.path.getsize(self.filename))
+        bytesWritten = os.path.getsize(self.filename)
         while True:
             data = fp.read(MAX_BUFFER_SIZE) #read 5 MB
             if not data:
@@ -114,14 +117,18 @@ class GUI():
             with open('data.bin','wb') as temp: #write 5MB to proxy file
                 temp.write(data)
             if sys.platform == 'win32':
-                args = WindowsPathToXdma + 'h2c_1 '  + 'write ' + str(address) + ' -f ' + 'data.bin ' + '-b' #create the args to pass to xdma
-                address = address + len(data)#update the address
-                p1 =subprocess.Popen(args)#call the xdma driver
-                p1.wait()
+                args = XdmaWrite + 'h2c_1 '  + 'write ' + str(address) + ' -f ' + 'data.bin ' + '-b' #create the args to pass to xdma
+            elif sys.platform == 'linux':
+                args = XdmaWrite + '-a ' + str(address) + ' -s ' + str(MAX_BUFFER_SIZE) + ' -f ' + 'data.bin' # create the args to give xdma
+            address = address + len(data)#update the address
+            p1 =subprocess.Popen(args)#call the xdma driver
+            p1.wait()
         fp.close()
         temp.close()
         os.remove('data.bin')#clean up proxy file
-
+        results = 'Bytes written : ' + bytesWritten
+        self.errorMessage.set(results)
+    ########################################################################################################################################################################
     def xdma_transfer_from_card(self):
         if self.hexOption.get() == 1: #hex was selected
             address= int(self.addressBox.get(),0)
@@ -132,21 +139,30 @@ class GUI():
         transfers_to_complete = int(transfers_to_complete)
 
         if transfers_to_complete == 0: #if we only have small file to do in 1 pass
-            args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(self.lengthBox.get())  +' -f ' + self.destinationFile.get() + ' -b'
+            if sys.platform == 'win32':
+                args = XdmaRead + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(self.lengthBox.get())  +' -f ' + self.destinationFile.get() + ' -b'
+            elif sys.platform == 'linux':
+                args = XdmaRead + '-a ' + str(address) + '-s ' + str(self.lengthBox.get()) + ' -f '  + self.destinationFile.get()
             p1 = subprocess.Popen(args)
         else:
             for i in range(0,transfers_to_complete): #create as many transfers as needed
                 with open(self.destinationFile.get(),'ab') as fp:
                     if sys.platform =='win32':
-                        args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(MAX_BUFFER_SIZE)  +' -f ' + 'output.bin ' + '-b' #read 5MB
-                        address = address + MAX_BUFFER_SIZE
-                        p1 = subprocess.Popen(args)
-                        p1.wait()
-                        with open('output.bin','rb') as temp:
-                            fp.write(temp.read(MAX_BUFFER_SIZE))
+                        args = XdmaRead + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(MAX_BUFFER_SIZE)  +' -f ' + 'output.bin ' + '-b' #read 5MB
+                    elif sys.platform == 'linux':
+                        args = XdmaRead  + '-a '  + str(address) + ' -s ' + str(MAX_BUFFER_SIZE) + ' -f ' + 'output.bin'
+                    address = address + MAX_BUFFER_SIZE
+                    p1 = subprocess.Popen(args)
+                    p1.wait()
+                    with open('output.bin','rb') as temp:
+                        fp.write(temp.read(MAX_BUFFER_SIZE))
+
 
             if remainder != 0: #if we have a remainder to do
-                args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(remainder)  +' -f ' + 'output.bin ' + '-b' #read reamaining bytes
+                if sys.platform == 'win32':
+                    args = WindowsPathToXdma + 'c2h_1 ' + 'read ' + str(address) + ' -l '  + str(remainder)  +' -f ' + 'output.bin ' + '-b' #read reamaining bytes
+                elif sys.platform == 'linux':
+                    args = XdmaRead + ' -a ' + str(address) + ' -s ' + str(remainder) + ' -f '  + 'data.bin'
                 with open(self.destinationFile.get(),'ab') as fp:
                     with open('output.bin','rb') as temp:
                         fp.write(temp.read(remainder))
@@ -156,13 +172,15 @@ class GUI():
             os.remove('output.bin')#clean up proxy file
         except: 
             print('no proxy file needed')
-
+    ########################################################################################################################################################################
         
 #setup_uart() #setup the uart
 this_dir = os.path.dirname(os.path.abspath(__file__))
 if sys.platform == 'win32':    
-    WindowsPathToXdma = os.path.join(this_dir, 'Xilinx_Answer_65444_Windows_Files', 'x64', 'bin', 'xdma_rw.exe ')
+    XdmaRead = os.path.join(this_dir, 'Xilinx_Answer_65444_Windows_Files', 'x64', 'bin', 'xdma_rw.exe ')
+    XdmaWrite = os.path.join(this_dir, 'Xilinx_Answer_65444_Windows_Files', 'x64', 'bin', 'xdma_rw.exe ')
 elif sys.platform == 'linux':
-    LinuxPathToXdma = os.path.join(this_dir, 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/ ')
-#print(WindowsPathToXdma) 
+    XdmaRead = os.path.join(this_dir, 'Linux-PCIe-DMA-Driver','XDMA','linux-kernel','tools','dma_from_device ' )
+    XdmaWrite = os.path.join(this_dir, 'Linux-PCIe-DMA-Driver','XDMA','linux-kernel','tools','dma_to_device ' )
+
 GUI()   #call the gui
