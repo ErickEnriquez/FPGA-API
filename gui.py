@@ -11,7 +11,7 @@ from setupUART import setup_uart
 XdmaWrite = ''
 XdmaRead = ''
 
-#Common addresses to read and write from
+#Common addresses to read and write from 
 dropDownOptions ={
     'DDR4':0x80000000,
     'UART_BASE':0x44A01000,
@@ -119,30 +119,26 @@ class GUI():
     ########################################################################################################################################################################
     def parse_input(self):
 
-        '''
-        if self.transfer_choice.get() == 'h2c' and self.filename != "":
+        if self.transfer_choice.get() == 'h2c' and self.filename != "" and self.addressBox.get()!='' and self.CommonLocationOption.get() == 2:
             self.errorMessage.set('') # clear the error message
             self.xdma_transfer_to_card()#call the function that will do the xdma transfer
-        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "":
+        elif self.transfer_choice.get() == 'h2c' and self.filename != "" and self.CommonLocationOption.get() == 1:
+            self.errorMessage.set('') # clear the error message
+            try:
+                self.xdma_transfer_to_card()#call the function that will do the xdma transfer
+            except KeyError:
+                self.errorMessage.set('Error, please ensure you selected location from dropdown')
+        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "" and self.CommonLocationOption.get() == 2 :
             self.errorMessage.set('') # clear the error message
             self.xdma_transfer_from_card()
+        elif self.transfer_choice.get() == 'c2h' and self.CommonLocationOption.get() == 1 and self.lengthBox.get() != "" :
+            self.errorMessage.set('') # clear the error message
+            try:
+                self.xdma_transfer_from_card()
+            except KeyError:
+                print('Error, please ensure you selected location from dropdown')
         else:
             self.errorMessage.set('Error, please ensure you have filled in all fields')
-            print(self.location.get())
-        '''
-        if self.transfer_choice.get() == 'h2c' and self.filename != "":
-            self.errorMessage.set('') # clear the error message
-            self.xdma_transfer_to_card()#call the function that will do the xdma transfer
-        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "":
-            self.errorMessage.set('') # clear the error message
-            self.xdma_transfer_from_card()
-        elif self.transfer_choice.get() == 'c2h' and self.CommonLocationOption.get() == 1 and self.lengthBox.get() != "":
-            self.errorMessage.set('') # clear the error message
-            self.xdma_transfer_from_card()
-        else:
-            self.errorMessage.set('Error, please ensure you have filled in all fields')
-            print(self.location.get())
-        print(self.CommonLocationOption.get())
 
     ########################################################################################################################################################################
     def xdma_transfer_to_card(self):
@@ -153,7 +149,7 @@ class GUI():
         elif self.hexOption.get() == 1 and self.CommonLocationOption.get() ==2:
             address= int(self.addressBox.get(),0)                               #using custom address
         else:
-            address = int(self.addressBox.get())
+            address = int(self.addressBox.get(),0)
             
         fp = open(self.filename,'rb')
         bytesWritten = os.path.getsize(self.filename)
@@ -220,7 +216,7 @@ class GUI():
                     with open('output.bin','rb') as temp:
                         fp.write(temp.read(remainder))
 
-        print('done')
+        print('DONE TRANSFERING DATA')
         try:
             os.remove('output.bin')#clean up proxy file
         except: 
