@@ -3,3 +3,4 @@
 **/libxdma/*.mk
 **/xdma/*.ur-safe
 **/xdma/*.mk
+__pycache__

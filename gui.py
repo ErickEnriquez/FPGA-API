@@ -11,8 +11,13 @@ from setupUART import setup_uart
 XdmaWrite = ''
 XdmaRead = ''
 
-#WindowsPathToXdma = 'C:/Users/butler/Documents/GitHub/FPGA_API/Xilinx_Answer_65444_Windows_Files/x64/bin/xdma_rw.exe '
-#LinuxPathToXdma = 'Linux-PCIe-DMA-Driver/XDMA/linux-kernel/tools/dma_to_device '
+#Common addresses to read and write from
+dropDownOptions ={
+    'DDR4':0x80000000,
+    'UART_BASE':0x44A01000,
+    'UART_LCR':0x440a100c,
+    'Enter':0x00000000
+}
 
 MAX_BUFFER_SIZE = 5242880 # 5 MB which is size of Xdma buffer
 
@@ -21,7 +26,8 @@ class GUI():
         self.root = Tk()
         self.filename = ""
         self.hexOption = IntVar()
-
+        self.hexOption.set(0)
+        self.CommonLocationOption = IntVar()
         self.errorMessage = StringVar()
         self.errorLabel = Label(self.root,textvariable=self.errorMessage)
     
@@ -36,6 +42,11 @@ class GUI():
         self.outputfile = Entry(self.root,text=self.filename,width=50)
         self.output = self.outputfile
 
+
+        self.location = StringVar(self.root)
+        self.location.set(dropDownOptions['Enter'])
+        self.dropDown = OptionMenu(self.root,self.location,*dropDownOptions)
+
         self.addressBox = Entry(self.root,width=50)
         self.lengthBox = Entry(self.root,width=50)
 
@@ -48,6 +59,9 @@ class GUI():
         radio1 = Radiobutton(self.root, text='host to card', value = 'h2c' , variable=self.transfer_choice, command=self.host_to_card)
         radio2 = Radiobutton(self.root,text='card to host', value = 'c2h', variable = self.transfer_choice, command=self.card_to_host)
         checkBoxHexOption = Checkbutton(self.root,text='Address in hex', variable=self.hexOption)
+        CommonCheckOption = Radiobutton(self.root,text='Click to use Common Locations',value='1', variable=self.CommonLocationOption,command=self.use_common_location)
+        UserAddressOption = Radiobutton(self.root,text='Click to enter Custom Location',value='2',variable = self.CommonLocationOption,command = self.use_custom_location )
+
 
         radio1.grid(column=0,row=1)
         radio2.grid(column=0,row=2)
@@ -57,6 +71,9 @@ class GUI():
         self.button1.grid(column=2,row=2)
         button2.grid(column=2,row=9)
         button3.grid(column=3,row=9)
+        CommonCheckOption.grid(column=2,row=7)
+        UserAddressOption.grid(column=2,row=8)
+        self.dropDown.grid(column=2,row=6)
         
     
         self.addressBox.grid(column =1,row=4)
@@ -92,7 +109,17 @@ class GUI():
         self.outputfile.config(state='disabled') #disable the filename entry
         self.button1.config(state='disabled')
     ########################################################################################################################################################################
+    def use_common_location(self):
+        self.addressBox.config(state='disabled')
+        self.dropDown.config(state='normal')
+    ########################################################################################################################################################################
+    def use_custom_location(self):
+        self.addressBox.config(state='normal')
+        self.dropDown.config(state='disabled')
+    ########################################################################################################################################################################
     def parse_input(self):
+
+        '''
         if self.transfer_choice.get() == 'h2c' and self.filename != "":
             self.errorMessage.set('') # clear the error message
             self.xdma_transfer_to_card()#call the function that will do the xdma transfer
@@ -101,13 +128,33 @@ class GUI():
             self.xdma_transfer_from_card()
         else:
             self.errorMessage.set('Error, please ensure you have filled in all fields')
+            print(self.location.get())
+        '''
+        if self.transfer_choice.get() == 'h2c' and self.filename != "":
+            self.errorMessage.set('') # clear the error message
+            self.xdma_transfer_to_card()#call the function that will do the xdma transfer
+        elif self.transfer_choice.get() == 'c2h' and self.addressBox.get() != "" and self.lengthBox.get() != "":
+            self.errorMessage.set('') # clear the error message
+            self.xdma_transfer_from_card()
+        elif self.transfer_choice.get() == 'c2h' and self.CommonLocationOption.get() == 1 and self.lengthBox.get() != "":
+            self.errorMessage.set('') # clear the error message
+            self.xdma_transfer_from_card()
+        else:
+            self.errorMessage.set('Error, please ensure you have filled in all fields')
+            print(self.location.get())
+        print(self.CommonLocationOption.get())
 
     ########################################################################################################################################################################
     def xdma_transfer_to_card(self):
-        if self.hexOption.get() == 1: #hex was selected
-            address= int(self.addressBox.get(),0)
+        if self.hexOption.get() == 1 and self.CommonLocationOption.get() == 1: #common location using dropdown selected
+            address = int(dropDownOptions[self.location.get()])
+        elif self.hexOption.get() == 0 and self.CommonLocationOption.get() == 1:
+            address = int(dropDownOptions[self.location.get()])
+        elif self.hexOption.get() == 1 and self.CommonLocationOption.get() ==2:
+            address= int(self.addressBox.get(),0)                               #using custom address
         else:
             address = int(self.addressBox.get())
+            
         fp = open(self.filename,'rb')
         bytesWritten = os.path.getsize(self.filename)
         while True:
@@ -130,10 +177,16 @@ class GUI():
         self.errorMessage.set(results)
     ########################################################################################################################################################################
     def xdma_transfer_from_card(self):
-        if self.hexOption.get() == 1: #hex was selected
+
+        if self.hexOption.get() == 1 and self.CommonLocationOption.get() == 1:  #hex was selected with common address
+            address = int(dropDownOptions[self.location.get()])
+        elif self.hexOption.get() == 0 and self.CommonLocationOption.get() == 1:
+            address = int(dropDownOptions[self.location.get()])
+        elif self.hexOption.get() == 1 and self.CommonLocationOption.get() == 2:
             address= int(self.addressBox.get(),0)
         else:
             address = int(self.addressBox.get())
+
         transfers_to_complete =   int(self.lengthBox.get())/MAX_BUFFER_SIZE #get the number of 5MB transfers we have to do
         remainder =  MAX_BUFFER_SIZE %  int(self.lengthBox.get()) #get the number of remainder we have to get
         transfers_to_complete = int(transfers_to_complete)
